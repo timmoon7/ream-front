@@ -3,15 +3,17 @@
 }
 .login {
     background-color: white;
-    text-align: left;
+    text-align: center;
     margin: 0 auto;
     width: 20em;
     padding: 1em;
     box-shadow: 0 .1em .2em -.1em black;
     margin-top: 1em;
+
   }
   
   .login input {
     width: 100%;
     box-sizing: border-box;
+    background-color: #E5E5E5;
   }

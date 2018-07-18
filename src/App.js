@@ -64,6 +64,7 @@ class App extends Component {
   render() {
     const {isLoggedIn} = this.state
     return <Fragment>
+      <img src={logo} className="App-logo" alt="logo" />
         {isLoggedIn ? 
           <button onClick={this.logout}>Logout</button> 
             : 
