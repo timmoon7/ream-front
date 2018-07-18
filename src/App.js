@@ -65,8 +65,13 @@ class App extends Component {
     const {isLoggedIn} = this.state
     return <Fragment>
       <img src={logo} className="App-logo" alt="logo" />
-        {isLoggedIn ? 
-          <button onClick={this.logout}>Logout</button> 
+        {isLoggedIn ?  
+          <div className="mainMenu">
+            <p><button>New Candidate</button></p>
+            <p><button>View All Candidates</button></p>
+            <p><button>Register New Interviewer/Admin (Admin Only)</button></p> 
+            <p><button width="100" onClick={this.logout}>Logout</button></p> 
+          </div>
             : 
           <LoginForm handleSubmit={this.login}/> 
         }
