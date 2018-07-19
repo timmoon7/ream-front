@@ -1,4 +1,5 @@
 import React from 'react'
+import api from '../api/interviewAPI'
 
 
 export default function InterviewForm(props) {
@@ -6,7 +7,15 @@ export default function InterviewForm(props) {
     const today = new Date();
     const this_year = today.getFullYear()
     const next_year = today.getFullYear() + 1
-    const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    const default_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    console.log(`Today: ${default_date}`)
+
+    const createInterview = (payload) => {
+        api.createInterview(payload)
+        .then((interview) => {
+            return interview
+        })
+      }
 
     return <form onSubmit={
         (e) => {
@@ -23,8 +32,9 @@ export default function InterviewForm(props) {
                     last_name: e.target.last_name.value
                 }
             }
+            console.log(`Interview Date: ${payload.date_time}`)
             e.target.reset()
-            props.handleSubmit(payload)
+            createInterview(payload)
         }
     }>
     
@@ -55,27 +65,27 @@ export default function InterviewForm(props) {
     </p>
     <p>
         <label htmlFor="date_time">Interview Date: </label>
-        <input type="text" name="date_time" defaultValue={date}  /> 
+        <input type="text" name="date_time" defaultValue={default_date}  /> 
     </p>
 
     <p>
         <label htmlFor="email">Email: </label>
-        <input type="text" name="email" defaultValue={props.email} />
+        <input type="text" name="email" />
     </p>
 
     <p>
         <label htmlFor="phone">Phone: </label>
-        <input type="text" name="phone" defaultValue={props.phone} />
+        <input type="text" name="phone" />
     </p>
 
     <p>
         <label htmlFor="first_name">First_name: </label>
-        <input type="text" name="first_name" defaultValue={props.first_name} />
+        <input type="text" name="first_name" />
     </p>
 
     <p>
         <label htmlFor="last_name">Last_name: </label>
-        <input type="text" name="last_name" defaultValue={props.last_name} />
+        <input type="text" name="last_name" />
     </p>
 
 
