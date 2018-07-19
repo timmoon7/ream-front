@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm'
 import auth from './api/auth'
-import logo from './logo.jpg'
+import logo from './redhill.png'
 
 
 class App extends Component {
