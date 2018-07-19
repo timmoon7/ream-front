@@ -3,7 +3,11 @@ import './App.css';
 import LoginForm from './components/LoginForm'
 import auth from './api/auth'
 import logo from './logo.jpg'
-//test comment
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import InterviewForm from './components/InterviewForm'
+import InterviewList from './components/InterviewList'
+import api from './api/interviewAPI'
+
 
 class App extends Component {
 
@@ -49,7 +53,6 @@ class App extends Component {
   
 
 
-
   logout = () => {
 
       this.setState({
@@ -63,19 +66,43 @@ class App extends Component {
 
   render() {
     const {isLoggedIn} = this.state
-    return <Fragment>
-      <img src={logo} className="App-logo" alt="logo" />
-        {isLoggedIn ?  
-          <div className="mainMenu">
-            <p><button>New Candidate</button></p>
-            <p><button>View All Candidates</button></p>
-            <p><button>Register New Interviewer/Admin (Admin Only)</button></p> 
-            <p><button onClick={this.logout}>Logout</button></p> 
-          </div>
-            : 
-          <LoginForm handleSubmit={this.login}/> 
-        }
-      </Fragment>
+    return( 
+    <BrowserRouter>
+      <Fragment>
+        <img src={logo} className="App-logo" alt="logo" />
+          {isLoggedIn ?  
+            <div className="mainMenu">
+                <p>
+                  <button>
+                   <Link to="/createInterview">New Candidate</Link>
+                  </button>
+                </p>
+                <p>
+                  <button>
+                   <Link to="/getInterviews">View all candidates</Link>
+                  </button>
+                </p>
+                <p>
+                  <button>
+                   <Link to="/interview">Register New Interviewer/Admin (Admin Only)</Link>
+                 </button>
+                </p>
+                <p>
+                 <button onClick={this.logout}>
+                   Logout
+                 </button>
+                </p>
+                <Switch>
+                  <Route path="/createInterview" component={InterviewForm} />
+                  <Route path="/getInterviews" component={InterviewList} />
+                </Switch>
+            </div>
+              : 
+            <LoginForm handleSubmit={this.login}/> 
+          }
+        </Fragment>
+      </BrowserRouter>
+      )
   }
 }
 
