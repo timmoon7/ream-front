@@ -52,7 +52,6 @@ class InterviewList extends Component {
 
         return (
         <div>
-            Test
             {interviewElements}
         </div>
         );
