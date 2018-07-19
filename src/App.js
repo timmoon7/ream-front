@@ -6,7 +6,6 @@ import logo from './logo.jpg'
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import InterviewForm from './components/InterviewForm'
 import InterviewList from './components/InterviewList'
-import api from './api/interviewAPI'
 
 
 class App extends Component {
