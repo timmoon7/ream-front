@@ -1,0 +1,27 @@
+.main-menu {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.main-menu .btn {
+    margin-bottom: 1em;
+    width: 23em;
+    padding: 2em 2em 2em 2em;
+    background: lightgray;
+    color: #404040;
+    font-size: 1em;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.main-menu .btn:hover {
+    background: slategray;
+    color: snow;
+}

@@ -86,8 +86,9 @@ export default function InterviewForm(props) {
         <input type="text" name="last_name" />
     </p>
 
+    <p>
+        <input type="submit" value="Add Candidate"/>
+    </p>
 
-    <input type="submit" value="Add Candidate"/>
-    <hr />
     </form>
 }

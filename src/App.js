@@ -3,7 +3,9 @@ import './App.css';
 import LoginForm from './components/LoginForm'
 import auth from './api/auth'
 import logo from './logo.jpg'
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import MainMenu from './pages/MainMenu'
+import ProtectedRoute from './pages/ProtectedRoute'
 import InterviewForm from './components/InterviewForm'
 import InterviewList from './components/InterviewList'
 
@@ -69,36 +71,18 @@ class App extends Component {
     <BrowserRouter>
       <Fragment>
         <img src={logo} className="App-logo" alt="logo" />
-          {isLoggedIn ?  
-            <div className="mainMenu">
-                <p>
-                  <button>
-                   <Link to="/createInterview">New Candidate</Link>
-                  </button>
-                </p>
-                <p>
-                  <button>
-                   <Link to="/getInterviews">View all candidates</Link>
-                  </button>
-                </p>
-                <p>
-                  <button>
-                   <Link to="/interview">Register New Interviewer/Admin (Admin Only)</Link>
-                 </button>
-                </p>
-                <p>
-                 <button onClick={this.logout}>
-                   Logout
-                 </button>
-                </p>
-                <Switch>
-                  <Route path="/createInterview" component={InterviewForm} />
-                  <Route path="/getInterviews" component={InterviewList} />
-                </Switch>
-            </div>
-              : 
-            <LoginForm handleSubmit={this.login}/> 
-          }
+          <Switch>
+            <Route path="/" exact render={() => {
+              return isLoggedIn ? 
+                <MainMenu logout={this.logout} /> 
+                  : 
+                <LoginForm handleSubmit={this.login}/> 
+              }}/>
+            <ProtectedRoute active={isLoggedIn} redirect="/">
+              <Route path="/createInterview" component={InterviewForm} />
+              <Route path="/getInterviews" component={InterviewList} />
+            </ProtectedRoute>
+          </Switch>
         </Fragment>
       </BrowserRouter>
       )
