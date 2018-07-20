@@ -11,7 +11,6 @@ class InterviewList extends Component {
     async componentDidMount() {
         const interviews = await api.getInterviews()
         this.setState({interviews})
-        console.log(this.state.interviews)
     }
 
 

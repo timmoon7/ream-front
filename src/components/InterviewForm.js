@@ -68,7 +68,7 @@ export default function InterviewForm(props) {
 
     <p>
         <label htmlFor="email">Email: </label>
-        <input type="text" name="email" />
+        <input type="email" name="email" />
     </p>
 
     <p>
