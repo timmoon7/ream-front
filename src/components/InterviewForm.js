@@ -8,7 +8,6 @@ export default function InterviewForm(props) {
     const this_year = today.getFullYear()
     const next_year = today.getFullYear() + 1
     const default_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    console.log(`Today: ${default_date}`)
 
     const createInterview = (payload) => {
         api.createInterview(payload)
@@ -27,12 +26,11 @@ export default function InterviewForm(props) {
                 date_time: e.target.date_time.value,
                 interviewee: {
                     email: e.target.email.value,
-                    phone: e.target.email.value,
+                    phone: e.target.phone.value,
                     first_name: e.target.first_name.value,
                     last_name: e.target.last_name.value
                 }
             }
-            console.log(`Interview Date: ${payload.date_time}`)
             e.target.reset()
             createInterview(payload)
         }
