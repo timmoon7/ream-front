@@ -8,6 +8,7 @@ import MainMenu from './pages/MainMenu'
 import ProtectedRoute from './pages/ProtectedRoute'
 import InterviewForm from './components/InterviewForm'
 import InterviewList from './components/InterviewList'
+import RegisterForm from './components/RegisterForm'
 
 
 class App extends Component {
@@ -81,6 +82,7 @@ class App extends Component {
             <ProtectedRoute active={isLoggedIn} redirect="/">
               <Route path="/createInterview" component={InterviewForm} />
               <Route path="/getInterviews" component={InterviewList} />
+              <Route path="/register" component={RegisterForm} />
             </ProtectedRoute>
           </Switch>
         </Fragment>

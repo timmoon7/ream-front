@@ -2,7 +2,7 @@ import React from 'react'
 import './LoginForm.css'
 import api from '../api/userAPI'
 
-export default function InterviewForm(props) {
+export default function RegisterForm(props) {
 
     const createUser = (payload) => {
         api.createUser(payload)
