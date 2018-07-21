@@ -11,7 +11,7 @@ export default function RegisterForm(props) {
         })
       }
 
-    return <form onSubmit={
+    return  <div className="login"> <form onSubmit={
         (e) => {
             e.preventDefault()
             const payload = {
@@ -69,4 +69,5 @@ export default function RegisterForm(props) {
               <input type="submit" value="Register"/>
             </p>
           </form>
+          </div>
 }

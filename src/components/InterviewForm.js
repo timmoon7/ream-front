@@ -16,7 +16,7 @@ export default function InterviewForm(props) {
         })
       }
 
-    return <form onSubmit={
+    return  <div className="login"> <form onSubmit={
         (e) => {
             e.preventDefault()
             const payload = {
@@ -77,12 +77,12 @@ export default function InterviewForm(props) {
     </p>
 
     <p>
-        <label htmlFor="first_name">First_name: </label>
+        <label htmlFor="first_name">First Name: </label>
         <input type="text" name="first_name" />
     </p>
 
     <p>
-        <label htmlFor="last_name">Last_name: </label>
+        <label htmlFor="last_name">Last Name: </label>
         <input type="text" name="last_name" />
     </p>
 
@@ -91,4 +91,5 @@ export default function InterviewForm(props) {
     </p>
 
     </form>
+    </div>
 }
