@@ -5,7 +5,7 @@ import Interview from './Interview'
 class InterviewList extends Component {
 
     state = {
-        interviews: null
+        interviews: this.props.interviews
     }
 
     async componentDidMount() {
@@ -27,32 +27,33 @@ class InterviewList extends Component {
 
     render() {
         // deconstructing
-        const {interviews} = this.state
+        // const {interviews} = this.state
+        const {interviews} = this.state;
 
+        if(!interviews) {
+        return <div> No Interview Data...</div>
+        }
 
-    if(!interviews) {
-      return <div> No Interview Data...</div>
-    }
-
-    const interviewElements = interviews.map((interview, i) => {
-        return <div key={i} >
-                <Interview 
-                  key={interview._id} 
-                  {...interview}
-                  handleDelete={this.deleteInterview}
-                />
-                {/* <CharacterUpdateForm 
-                  // key={i} 
-                    {...character}
-                  handleUpdate={this.updateCharacter}
-                /> */}
-              </div>
-      })
+    // const interviewElements = interviews.map((interview, i) => {
+    //     return <div key={i} >
+    //             <Interview 
+    //               key={interview._id} 
+    //               {...interview}
+    //               handleDelete={this.deleteInterview}
+    //             />
+    //           </div>
+    //   })
 
         return (
-        <div>
-            {interviewElements}
-        </div>
+            <div>
+                {interviews.map((interview) => (
+                    <Interview
+                        key={interview._id}
+                        interview={interview}
+                        handleDelete={this.deleteInterview}
+                    />
+                ))}
+            </div>
         );
     }
 }

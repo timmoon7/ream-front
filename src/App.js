@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm'
 import auth from './api/auth'
+import interviewAPI from './api/interviewAPI'
+import questionAPI from './api/questionAPI'
 import logo from './logo.jpg'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import MainMenu from './pages/MainMenu'
@@ -10,6 +12,7 @@ import InterviewForm from './components/InterviewForm'
 import InterviewList from './components/InterviewList'
 import RegisterForm from './components/RegisterForm'
 
+import InterviewUpdateForm from './components/InterviewUpdateForm'
 
 class App extends Component {
 
@@ -32,34 +35,28 @@ class App extends Component {
     })
   }
 
-    componentDidMount() {
-      // nothing here so far
-      // locked in
-      const token = localStorage.getItem('token')
+  async componentDidMount() {
+    const questions = await questionAPI.getQuestions();
+    const interviews = await interviewAPI.getInterviews();
 
-      // token (007)
-      // token null
+    return this.setState({questions, interviews})
+    
+    const token = localStorage.getItem('token')
+
       if(token) {
         this.setState({
           token,
           isLoggedIn: true 
         })
       }
-
-    
-    }
-    // post username, password √
-    // receieve token √
-    // update state 
-    // update state to set LoggedIn to true
-  
+  }
 
 
   logout = () => {
 
       this.setState({
         token: null,
-        isLoggedIn:false
+        isLoggedIn: false
       })
       
       localStorage.removeItem('token')
@@ -67,7 +64,7 @@ class App extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.state
+    const {isLoggedIn, questions, interviews} = this.state
     return( 
     <BrowserRouter>
       <Fragment>
@@ -79,11 +76,21 @@ class App extends Component {
                   : 
                 <LoginForm handleSubmit={this.login}/> 
               }}/>
-            <ProtectedRoute active={isLoggedIn} redirect="/">
-              <Route path="/createInterview" component={InterviewForm} />
-              <Route path="/getInterviews" component={InterviewList} />
+            {interviews && questions && <ProtectedRoute active={isLoggedIn} redirect="/">
+              <Route exact path="/interview/create" component={InterviewForm} />
+              <Route exact path="/interviews" render={() => (
+                <InterviewList
+                  interviews={interviews}
+                  />
+              )} />
+              <Route exact path="/interviews/:id/edit" render={({match: { params}}) => (
+                  <InterviewUpdateForm
+                    interviewId={params.id}
+                    questions={questions}
+                  />
+              )} />
               <Route path="/register" component={RegisterForm} />
-            </ProtectedRoute>
+            </ProtectedRoute>}
           </Switch>
         </Fragment>
       </BrowserRouter>

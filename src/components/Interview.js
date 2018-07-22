@@ -1,20 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function Interview(props) {
-
-    const modify_date = new Date(props.date_time);
+export default function Interview({interview, handleDelete}) {
+    const { _id, year, intake, duration, interviewee} = interview;
+    const { email, phone, first_name, last_name} = interviewee;
+    const modify_date = new Date(interview.date_time);
     const interview_date = modify_date.getFullYear()+'-'+(modify_date.getMonth()+1)+'-'+modify_date.getDate();
 
     return <li>
-        <p>Year: {props.year}  Intake: {props.intake}</p>
+        <p>Duration: {duration}</p>
+        <p>Year: {year}  Intake: {intake}</p>
         <p>Date: {interview_date}</p>
         {/* <p>Date: {props.date_time.substr(0,10)}</p> */}
-        <p>{props.interviewee.email}  {props.interviewee.phone}</p>
-        <p>{props.interviewee.first_name}  {props.interviewee.last_name}</p>
+        <p>{email}  {phone}</p>
+        <p>{first_name}  {last_name}</p>
 
         <br />
         <button onClick={() => {
-            props.handleDelete(props._id)
+            handleDelete(_id)
         }}>DELETE</button>
+        <Link to={{pathname: `/interviews/${_id}/edit`}}>Edit</Link>
     </li>
 }
