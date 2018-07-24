@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm'
 import auth from './api/auth'
-import logo from './logo.jpg'
+import logo from './logo.png'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import MainMenu from './pages/MainMenu'
 import ProtectedRoute from './pages/ProtectedRoute'
