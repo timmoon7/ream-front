@@ -2,7 +2,7 @@ import React from 'react'
 import './LoginForm.css'
 import api from '../api/userAPI'
 
-export default function RegisterForm(props) {
+export default function RegisterForm() {
 
     const createUser = (payload) => {
         api.createUser(payload)
@@ -28,11 +28,11 @@ export default function RegisterForm(props) {
             createUser(payload)
         }
     }>
+            <h1>Register New User</h1>
             <p> 
                 <label htmlFor="first_name">First Name: </label>
                 <input type="text" name="first_name"/>
-                </p>
-
+            </p>
             <p> 
                 <label htmlFor="last_name">Last Name: </label>
                 <input type="text" name="last_name"/>

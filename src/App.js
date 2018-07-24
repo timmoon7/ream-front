@@ -4,14 +4,19 @@ import LoginForm from './components/LoginForm'
 import auth from './api/auth'
 import interviewAPI from './api/interviewAPI'
 import questionAPI from './api/questionAPI'
+import userAPI from './api/userAPI'
 import logo from './logo.jpg'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import MainMenu from './pages/MainMenu'
 import ProtectedRoute from './pages/ProtectedRoute'
 import InterviewForm from './components/InterviewForm'
 import InterviewList from './components/InterviewList'
-import InterviewUpdateForm from './components/InterviewUpdateForm'
+import UserList from './components/UserList'
 import RegisterForm from './components/RegisterForm'
+import 'react-table/react-table.css'
+import UserUpdateForm from './components/UserUpdateForm'
+
+import InterviewUpdateForm from './components/InterviewUpdateForm'
 import QuestionForm from './components/QuestionForm'
 
 class App extends Component {
@@ -38,8 +43,9 @@ class App extends Component {
   async componentDidMount() {
     const questions = await questionAPI.getQuestions();
     const interviews = await interviewAPI.getInterviews();
+    const users= await userAPI.getUsers();
 
-    return this.setState({questions, interviews})
+    return this.setState({questions, interviews, users})
     
     const token = localStorage.getItem('token')
 
@@ -64,7 +70,7 @@ class App extends Component {
   }
 
   render() {
-    const {isLoggedIn, questions, interviews} = this.state
+    const {isLoggedIn, questions, interviews, users} = this.state
     return( 
     <BrowserRouter>
       <Fragment>
@@ -83,10 +89,20 @@ class App extends Component {
                   interviews={interviews}
                   />
               )} />
+              <Route exact path="/users" render={() => (
+                <UserList
+                  users={users}
+                  />
+              )} />
               <Route exact path="/interviews/:id/edit" render={({match: { params}}) => (
                   <InterviewUpdateForm
                     interviewId={params.id}
                     questions={questions}
+                  />
+              )} />
+              <Route exact path="/users/:id/edit" render={({match: { params}}) => (
+                  <UserUpdateForm
+                    userId={params.id}
                   />
               )} />
               <Route path="/register" component={RegisterForm} />
