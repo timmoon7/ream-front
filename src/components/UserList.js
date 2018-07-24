@@ -4,7 +4,6 @@ import User from './User'
 import RegisterForm from './RegisterForm'
 
 
-
 class UserList extends Component {
 
     state = {
@@ -32,9 +31,8 @@ class UserList extends Component {
         const {users} = this.state;
 
         if(!users) {
-        return <div> No User Data...</div>
+            return <div> No User Data...</div>
         }
-
 
         return (
             <div>

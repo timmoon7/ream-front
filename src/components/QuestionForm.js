@@ -44,11 +44,8 @@ export default function QuestionForm(props) {
         <select name="category" id="category">
             <option value="Technical Skills">Technical Skills</option>
             <option value="Soft Skills">Soft Skills</option>
-        </select>
-    </p>
-
-    <p>
-        <label htmlFor="title">Title</label>
+        </select>&nbsp;&nbsp;
+        <label htmlFor="title">Title: </label>
         <input type="text" name="title" /> 
     </p>
 
@@ -59,31 +56,31 @@ export default function QuestionForm(props) {
 
     <p>
         <label htmlFor="item1">Point 1: </label>
-        <input type="text" name="item1" />
+        <input type="text" name="item1" size="50" />
         <input type="hidden" name="point1" value="1" />
     </p>
 
     <p>
         <label htmlFor="item2">Point 2: </label>
-        <input type="text" name="item2" />
+        <input type="text" name="item2" size="50" />
         <input type="hidden" name="point2" value="2" />
     </p>
 
     <p>
         <label htmlFor="item3">Point 3: </label>
-        <input type="text" name="item3" />
+        <input type="text" name="item3" size="50" />
         <input type="hidden" name="point3" value="3" />
     </p>
 
     <p>
         <label htmlFor="item4">Point 4: </label>
-        <input type="text" name="item4" />
+        <input type="text" name="item4" size="50" />
         <input type="hidden" name="point4" value="4" />
     </p>
 
     <p>
         <label htmlFor="item5">Point 5: </label>
-        <input type="text" name="item5" />
+        <input type="text" name="item5" size="50" />
         <input type="hidden" name="point5" value="5" />
     </p>
 

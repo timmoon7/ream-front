@@ -23,7 +23,6 @@ async function getQuestion(id) {
 
 // POST
 async function createQuestion(question) {
-    console.log(question)
     const uri = '/questions'
 
     const response = await axios.post(uri, question)

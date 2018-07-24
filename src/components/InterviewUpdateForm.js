@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import interviewApi from '../api/interviewAPI'
+import api from '../api/interviewAPI'
+import {withRouter} from 'react-router-dom';
 
 class InterviewUpdateForm extends Component {
 
@@ -8,17 +9,24 @@ class InterviewUpdateForm extends Component {
     }
 
     async componentDidMount() {
-        console.log('form did mount');
-        const interview = await interviewApi.getInterview(this.props.interviewId)
+        const interview = await api.getInterview(this.props.interviewId)
         this.setState({interview})
     }
 
-    async updateInterview(payload) {
+    updateInterview(payload) {
         const interviewId = this.state.interview._id
-        interviewApi.updateInterview(interviewId, payload)
+        api.updateInterview(interviewId, payload)
         .then((interview) => {
             return this.setState({interview})
         })
+    }
+
+    deleteInterview(id) {
+        api.deleteInterview(id)
+        .then(() => {
+            this.props.history.push('/interviews')
+        })
+        .catch((err) => console.error(err))
     }
 
     renderQuestions = (scores = []) => {
@@ -74,67 +82,72 @@ class InterviewUpdateForm extends Component {
     }
 
     render() {
-        // const {questions, interview} = this.state
         const {interview} = this.state
         if (!interview) return null;
         const {interviewee} = interview;
 
         return ( 
-            <form onSubmit={this.onSubmit}>
-                <p>
-                    <label htmlFor="interviewee">Interviewee: </label>
-                    {interviewee.first_name + ' ' + interviewee.last_name}
-                </p>
+            <div>
+                <button onClick={() => {
+                    this.deleteInterview(interview._id)}}>Delete This Interview
+                </button>
 
-                {this.renderQuestions(interview.scores)}
-                <p>
-                    <label htmlFor="duration">Duration: </label>
-                    <input type="number" name="duration" defaultValue={interview.duration}/> minutes 
-                </p>
-                <p>
-                    <label htmlFor="test_score">Admissions Test Score: </label>
-                    <input type="number" name="test_score" defaultValue={interview.test_score} /> 
-                </p>
-                <p>
-                    <label htmlFor="outcome">Outcome: </label>
-                    <select name="outcome" id="outcome" defaultValue={interview.outcome}>
-                        <option value="Pending">Pending</option>
-                        <option value="Accepted">Accepted</option>
-                        <option value="Rejected">Rejected</option>
-                        <option value="Withdrawn">Withdrawn</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </p>
-                <p>
-                    <label htmlFor="outcome_comment">Outcome Comments: </label>
-                    <input type="text" name="outcome_comment"  defaultValue={interview.outcome_comment}/> 
-                </p>
-                <p>
-                    <label htmlFor="student_id">Student ID: </label>
-                    <input type="text" name="student_id"  defaultValue={interview.student_id} /> 
-                </p>
-                <p>
-                    <label htmlFor="jr_updated">JR Updated: </label>
-                    <input type="checkbox" name="jr_updated" value="jr_updated" defaultChecked={interview.jr_updated}/>
-                </p>
-                <p>
-                    <label htmlFor="hubspot_updated">Hubspot Updated: </label>
-                    <input type="checkbox" name="hubspot_updated" value="hubspot_updated" defaultChecked={interview.hubspot_updated} />
-                </p>
-                <p>
-                    <label htmlFor="enrolment_confirmed">Enronment Confirmed: </label>
-                    <input type="checkbox" name="enrolment_confirmed" value="enrolment_confirmed" defaultChecked={interview.enrolment_confirmed} />
-                </p>
-                <p>
-                    <label htmlFor="comment">Comments: </label>
-                    <input type="text" name="comment"  defaultValue={interview.comment} /> 
-                </p>
-                <p>
-                    <input value="submit" type="submit" />
-                </p> 
-            </form>
+                <form onSubmit={this.onSubmit}>
+                    <p>
+                        <label htmlFor="interviewee">Interviewee: </label>
+                        {interviewee.first_name + ' ' + interviewee.last_name}
+                    </p>
+
+                    {this.renderQuestions(interview.scores)}
+                    <p>
+                        <label htmlFor="duration">Duration: </label>
+                        <input type="number" name="duration" defaultValue={interview.duration}/> minutes 
+                    </p>
+                    <p>
+                        <label htmlFor="test_score">Admissions Test Score: </label>
+                        <input type="number" name="test_score" defaultValue={interview.test_score} /> 
+                    </p>
+                    <p>
+                        <label htmlFor="outcome">Outcome: </label>
+                        <select name="outcome" id="outcome" defaultValue={interview.outcome}>
+                            <option value="Pending">Pending</option>
+                            <option value="Accepted">Accepted</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Withdrawn">Withdrawn</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label htmlFor="outcome_comment">Outcome Comments: </label>
+                        <input type="text" name="outcome_comment"  defaultValue={interview.outcome_comment}/> 
+                    </p>
+                    <p>
+                        <label htmlFor="student_id">Student ID: </label>
+                        <input type="text" name="student_id"  defaultValue={interview.student_id} /> 
+                    </p>
+                    <p>
+                        <label htmlFor="jr_updated">JR Updated: </label>
+                        <input type="checkbox" name="jr_updated" value="jr_updated" defaultChecked={interview.jr_updated}/>
+                    </p>
+                    <p>
+                        <label htmlFor="hubspot_updated">Hubspot Updated: </label>
+                        <input type="checkbox" name="hubspot_updated" value="hubspot_updated" defaultChecked={interview.hubspot_updated} />
+                    </p>
+                    <p>
+                        <label htmlFor="enrolment_confirmed">Enronment Confirmed: </label>
+                        <input type="checkbox" name="enrolment_confirmed" value="enrolment_confirmed" defaultChecked={interview.enrolment_confirmed} />
+                    </p>
+                    <p>
+                        <label htmlFor="comment">Comments: </label>
+                        <input type="text" name="comment"  defaultValue={interview.comment} /> 
+                    </p>
+                    <p>
+                        <input value="submit" type="submit" />
+                    </p> 
+                </form>
+            </div>
         )
     }
 }
 
-export default InterviewUpdateForm
+export default withRouter(InterviewUpdateForm)

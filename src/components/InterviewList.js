@@ -11,6 +11,11 @@ class InterviewList extends Component {
 
     async componentDidMount() {
         const interviews = await api.getInterviews()
+        interviews.map(interview => {
+            const modify_date = new Date(interview.date_time);
+            const interview_date = modify_date.getDate()+'-'+(modify_date.getMonth()+1)+'-'+modify_date.getFullYear();
+            interview.date_time = interview_date
+        })
         this.setState({interviews})
     }
 
@@ -32,7 +37,9 @@ class InterviewList extends Component {
             return <div> No Interview Data...</div>
         }
     
-        function Expand({_id, intake, year, interviewee, test_score, student_id, scores, outcome, outcome_comment, duration, comment, jr_updated, hubspot_updated}) {
+        function Expand({_id, intake, year, interviewee, test_score, student_id, 
+            scores, outcome, outcome_comment, duration, comment, jr_updated, 
+            hubspot_updated, enrolment_confirmed}) {
             return <div>
                 <p>Intake: {intake}</p> 
                 <p>Year: {year}</p>
@@ -41,64 +48,58 @@ class InterviewList extends Component {
                 <p>Technical Skills Average: {}</p>
                 <p>Soft Skills Average: {}</p>
                 <p>Interview Comments: {comment}</p>
-                <p>Interview Duration: {duration}</p>
+                <p>Interview Duration: {duration} minutes</p>
                 <p>Admission Test Result: {test_score}</p>
-                <p>JR Updated: {jr_updated}</p>
-                <p>Hubspot Updated: {hubspot_updated}</p>
-                <p>Enrolment Confirmed: {outcome}</p>
-                <p>Enrolment Comment: {outcome_comment}</p>
+                <p>JR Updated: {jr_updated ? "Yes" : "No"}</p>
+                <p>Hubspot Updated: {hubspot_updated ? "Yes" : "No"}</p>
+                <p>Enrolment Confirmed: {enrolment_confirmed ? "Yes" : "No"}</p>
+                <p>Outcome: {outcome}</p>
+                <p>Outcome Comment: {outcome_comment}</p>
                 <p>Student ID: {student_id}</p>
-                <button onClick={(_id) => {
-                    this.deleteInterview}}>Delete</button>
                 <Link to={{pathname: `/interviews/${_id}/edit`}}>Edit</Link>
-                </div>
-                
+                </div>  
         }
       
         return (
             <div>
-            <ReactTable
-                data={interviews}
-                className="-striped -highlight"
-                columns={[
-                    {
-                        Header: "Date",
-                        accessor: "date_time"
-                    },
-                    {
-                        Header: "First Name",
-                        accessor:"interviewee.first_name"      
-                    },
-                    
-                    {
-                        Header: "Last Name",
-                        accessor:"interviewee.last_name"
-                    },
-                    {
-                        Header: "Campus",
-                        accessor: "campus"
-                    },
-                    {
-                        Header: "Interviewer",
-                        accessor: "interviewer"
-                    },
-                    {
-                        Header: "Status",
-                        accessor: "outcome"
-                    }
-                ]}
-                SubComponent={row => {
+                <ReactTable
+                    data={interviews}
+                    className="-striped -highlight"
+                    columns={[
+                        {
+                            Header: "Date",
+                            accessor: "date_time"
+                        },
+                        {
+                            Header: "First Name",
+                            accessor:"interviewee.first_name"      
+                        },
+                        {
+                            Header: "Last Name",
+                            accessor:"interviewee.last_name"
+                        },
+                        {
+                            Header: "Campus",
+                            accessor: "campus"
+                        },
+                        {
+                            Header: "Interviewer",
+                            accessor: "interviewer"
+                        },
+                        {
+                            Header: "Status",
+                            accessor: "outcome"
+                        }
+                    ]}
+                    SubComponent={row => {
 
-                    return (
-                      <div style={{ padding: "20px" }}>
-                       
-                          <Expand {...row.original} />
-
-                        </div>
-                           
-                   )}} 
-        
-                /></div>
+                        return (
+                        <div style={{ padding: "20px" }}>
+                            <Expand {...row.original} />
+                            </div>  
+                    )}} 
+                />
+            </div>
         );
     }
 }

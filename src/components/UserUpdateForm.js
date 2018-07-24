@@ -8,7 +8,6 @@ class UserUpdateForm extends Component {
     }
 
     async componentDidMount() {
-        console.log('form did mount');
         const user = await userApi.getUser(this.props.userId)
         this.setState({user})
     }
@@ -23,7 +22,6 @@ class UserUpdateForm extends Component {
         e.preventDefault()
 
         const payload = {
-
             campus: e.target.campus.value,
             email: e.target.email.value,
             password: e.target.password.value,
