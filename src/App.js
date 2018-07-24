@@ -11,6 +11,7 @@ import ProtectedRoute from './pages/ProtectedRoute'
 import InterviewForm from './components/InterviewForm'
 import InterviewList from './components/InterviewList'
 import RegisterForm from './components/RegisterForm'
+import 'react-table/react-table.css'
 
 import InterviewUpdateForm from './components/InterviewUpdateForm'
 
