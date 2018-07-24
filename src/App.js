@@ -1,23 +1,29 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import LoginForm from './components/LoginForm'
+import 'react-table/react-table.css'
 import auth from './api/auth'
 import interviewAPI from './api/interviewAPI'
 import questionAPI from './api/questionAPI'
 import userAPI from './api/userAPI'
 import logo from './logo.jpg'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
+
 import MainMenu from './pages/MainMenu'
 import ProtectedRoute from './pages/ProtectedRoute'
-import InterviewForm from './components/InterviewForm'
-import InterviewList from './components/InterviewList'
+import LoginForm from './components/LoginForm'
+
 import UserList from './components/UserList'
 import RegisterForm from './components/RegisterForm'
-import 'react-table/react-table.css'
 import UserUpdateForm from './components/UserUpdateForm'
 
+import InterviewForm from './components/InterviewForm'
+import InterviewList from './components/InterviewList'
 import InterviewUpdateForm from './components/InterviewUpdateForm'
+
 import QuestionForm from './components/QuestionForm'
+import QuestionList from './components/QuestionList'
+import QuestionUpdateForm from './components/QuestionUpdateForm'
+
 
 class App extends Component {
 
@@ -107,6 +113,16 @@ class App extends Component {
               )} />
               <Route path="/register" component={RegisterForm} />
               <Route exact path="/question/create" component={QuestionForm} />
+              <Route exact path="/questions" render={() => (
+                <QuestionList
+                  questions={questions}
+                />
+              )} />
+              <Route exact path="/questions/:id/edit" render={({match: { params}}) => (
+                <QuestionUpdateForm
+                    questionId={params.id}
+                />
+              )} />
             </ProtectedRoute>}
           </Switch>
         </Fragment>

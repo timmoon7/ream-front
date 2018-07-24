@@ -34,7 +34,6 @@ async function createQuestion(question) {
 async function updateQuestion(id, payload) {
     const uri = `/questions/${id}`
     const response = await axios.patch(uri, payload)
-    // console.log(`Update Response Data: ${response.data.name}`)
     return response.data
 }
 

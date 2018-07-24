@@ -1,61 +1,93 @@
 import React, { Component } from 'react';
-import api from '../api/interviewAPI'
-import Interview from './Interview'
+import api from '../api/questionAPI'
+import ReactTable from 'react-table'
+import { Link } from 'react-router-dom'
 
-class InterviewList extends Component {
+class QuestionList extends Component {
 
     state = {
-        interviews: this.props.interviews
+        questions: null
     }
 
     async componentDidMount() {
-        const interviews = await api.getInterviews()
-        this.setState({interviews})
+        const questions = await api.getQuestions()
+        this.setState({questions})
     }
 
-
-    deleteInterview = (id) => {
-        api.deleteInterview(id)
+    deleteQuestion = (id) => {
+        api.deleteQuestion(id)
         .then(() => {
            this.setState((prevState) => {
-             const interviews = prevState.interviews.filter(interview => interview._id !== id)               
-             return {interviews}
+             const questions = prevState.questions.filter(question => question._id !== id)               
+             return {questions}
            })
         })
         .catch((err) => console.error(err))
     }
 
     render() {
-        // deconstructing
-        // const {interviews} = this.state
-        const {interviews} = this.state;
+        const {questions} = this.state
 
-        if(!interviews) {
-        return <div> No Interview Data...</div>
+        if(!questions) {
+            return <div> No Question Data...</div>
         }
-
-    // const interviewElements = interviews.map((interview, i) => {
-    //     return <div key={i} >
-    //             <Interview 
-    //               key={interview._id} 
-    //               {...interview}
-    //               handleDelete={this.deleteInterview}
-    //             />
-    //           </div>
-    //   })
-
+        
+        function Expand({_id, category, title, description, criteria, priority, comment}) {
+            return <div>
+                <p>Category: {category}</p> 
+                <p>Title: {title}</p>
+                <p>Description: {description}</p>
+                <p>Priority: {priority}</p>
+                <p>Criteria:
+                    <ul>
+                        <li>{criteria[0].value}: {criteria[0].item}</li>
+                        <li>{criteria[1].value}: {criteria[1].item}</li>
+                        <li>{criteria[2].value}: {criteria[2].item}</li>
+                        <li>{criteria[3].value}: {criteria[3].item}</li>
+                        <li>{criteria[4].value}: {criteria[4].item}</li>
+                    </ul>
+                </p>
+                <button onClick={(_id) => {
+                    this.deleteQuestion}}>Delete
+                </button>
+                <Link to={{pathname: `/questions/${_id}/edit`}}>Edit</Link>
+                </div>
+                
+        }
+        
         return (
             <div>
-                {interviews.map((interview) => (
-                    <Interview
-                        key={interview._id}
-                        interview={interview}
-                        handleDelete={this.deleteInterview}
-                    />
-                ))}
-            </div>
+            <ReactTable
+                data={questions}
+                className="-striped -highlight"
+                columns={[
+                    {
+                        Header: "Category",
+                        accessor: "category"
+                    },
+                    {
+                        Header: "Title",
+                        accessor:"title"      
+                    },
+                    {
+                        Header: "Priority",
+                        accessor:"priority"
+                    }
+                ]}
+                SubComponent={row => {
+
+                    return (
+                      <div style={{ padding: "20px" }}>
+                       
+                          <Expand {...row.original} />
+
+                        </div>
+                           
+                   )}} 
+        
+                /></div>
         );
     }
 }
 
-export default InterviewList
+export default QuestionList

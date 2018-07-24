@@ -14,8 +14,6 @@ class InterviewUpdateForm extends Component {
     }
 
     async updateInterview(payload) {
-        // console.log(payload)
-        // interviewApi.updateInterview('5b52e2a109e9d22c40832c74', payload)
         const interviewId = this.state.interview._id
         interviewApi.updateInterview(interviewId, payload)
         .then((interview) => {
@@ -28,10 +26,7 @@ class InterviewUpdateForm extends Component {
             <div>
                 {
                     this.props.questions.map(question => {
-                        // question needs to be in a group identified by it's id
-                        // questions need to be radio
                         const answer = scores.find((score) => score.title === question.title);
-                        // console.log(answer.score);
                         return (
                             <div key={question._id}>
                                 <fieldset id={question._id} title={question.title} category={question.category} style={{margin: 30, textAlign: 'left'}}>
@@ -84,8 +79,6 @@ class InterviewUpdateForm extends Component {
         if (!interview) return null;
         const {interviewee} = interview;
 
-        console.log(interview);
-        
         return ( 
             <form onSubmit={this.onSubmit}>
                 <p>
