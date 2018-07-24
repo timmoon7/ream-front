@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './LoginForm.css'
 
 export default function Interview({user, handleDelete}) {
     const { _id, email, campus, first_name, last_name, role} = user;
    
-    return <li>
+    return <div className="login"> <li>
         <p>Name: {first_name + last_name}</p>
         <p>Email: {email}</p>
         <p>Campus: {campus}</p>
-        <p>Role {role}</p>
+        <p>Role: {role}</p>
 
         <br />
         <button onClick={() => {
@@ -18,4 +19,5 @@ export default function Interview({user, handleDelete}) {
          <Link to={{pathname: `/users/${_id}/edit`}}>Edit</Link>
         </button>
     </li>
+    </div>
 }

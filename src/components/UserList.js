@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import api from '../api/userAPI'
 import User from './User'
 import RegisterForm from './RegisterForm'
-
+import './UserForm.css'
 
 
 class UserList extends Component {
@@ -37,7 +37,7 @@ class UserList extends Component {
 
 
         return (
-            <div>
+            <div className="">
                 <RegisterForm />
                 <h3>Current Users</h3>
                 {users.map((user) => (
