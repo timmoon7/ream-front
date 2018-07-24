@@ -14,15 +14,25 @@ export default function QuestionForm(props) {
     return <form onSubmit={
         (e) => {
             e.preventDefault()
+            
+            // priority will be used to sort quetions when do an interview
+            let priority = 6;
+            if (e.target.category.value === "Soft Skills") {
+                priority = "26"
+            } 
+
             const payload = {
-                year: e.target.year.value,
                 category: e.target.category.value,
                 title: e.target.title.value,
                 description: e.target.description.value,
-                criteria: {
-                    item: e.target.item.value,
-                    value: e.target.value.value
-                }
+                criteria: [
+                    { item: e.target.item1.value, value: e.target.point1.value},
+                    { item: e.target.item2.value, value: e.target.point2.value},
+                    { item: e.target.item3.value, value: e.target.point3.value},
+                    { item: e.target.item4.value, value: e.target.point4.value},
+                    { item: e.target.item5.value, value: e.target.point5.value}
+                ],
+                priority: priority
             }
             e.target.reset()
             createQuestion(payload)
@@ -30,48 +40,54 @@ export default function QuestionForm(props) {
     }>
     
     <p>
-        <label htmlFor="intake">Intake: </label>
-        <select name="intake" id="intake">
-            <option value="1">1</option>
-            <option value="2">2</option>
+        <label htmlFor="category">Category: </label>
+        <select name="category" id="category">
+            <option value="Technical Skills">Technical Skills</option>
+            <option value="Soft Skills">Soft Skills</option>
         </select>
     </p>
 
     <p>
-        <label htmlFor="campus">Campus: </label>
-        <select name="campus" id="campus">
-            <option value="Melbourne">Melbourne</option>
-            <option value="Sydney">Sydney</option>
-            <option value="Brisbane">Brisbane</option>
-        </select>
-    </p>
-    <p>
-        <label htmlFor="date_time">Interview Date: </label>
-        <input type="text" name="date_time" defaultValue={default_date}  /> 
+        <label htmlFor="title">Title</label>
+        <input type="text" name="title" /> 
     </p>
 
     <p>
-        <label htmlFor="email">Email: </label>
-        <input type="text" name="email" />
+        <label htmlFor="description">Description</label>
+        <input type="text" name="description" size="100" /> 
     </p>
 
     <p>
-        <label htmlFor="phone">Phone: </label>
-        <input type="text" name="phone" />
+        <label htmlFor="item1">Point 1: </label>
+        <input type="text" name="item1" />
+        <input type="hidden" name="point1" value="1" />
     </p>
 
     <p>
-        <label htmlFor="first_name">First_name: </label>
-        <input type="text" name="first_name" />
+        <label htmlFor="item2">Point 2: </label>
+        <input type="text" name="item2" />
+        <input type="hidden" name="point2" value="2" />
     </p>
 
     <p>
-        <label htmlFor="last_name">Last_name: </label>
-        <input type="text" name="last_name" />
+        <label htmlFor="item3">Point 3: </label>
+        <input type="text" name="item3" />
+        <input type="hidden" name="point3" value="3" />
     </p>
 
+    <p>
+        <label htmlFor="item4">Point 4: </label>
+        <input type="text" name="item4" />
+        <input type="hidden" name="point4" value="4" />
+    </p>
 
-    <input type="submit" value="Add Candidate"/>
-    <hr />
+    <p>
+        <label htmlFor="item5">Point 5: </label>
+        <input type="text" name="item5" />
+        <input type="hidden" name="point5" value="5" />
+    </p>
+
+    <input type="submit" value="Add Question" />
+
     </form>
 }

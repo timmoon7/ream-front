@@ -10,9 +10,9 @@ import MainMenu from './pages/MainMenu'
 import ProtectedRoute from './pages/ProtectedRoute'
 import InterviewForm from './components/InterviewForm'
 import InterviewList from './components/InterviewList'
-import RegisterForm from './components/RegisterForm'
-
 import InterviewUpdateForm from './components/InterviewUpdateForm'
+import RegisterForm from './components/RegisterForm'
+import QuestionForm from './components/QuestionForm'
 
 class App extends Component {
 
@@ -90,6 +90,7 @@ class App extends Component {
                   />
               )} />
               <Route path="/register" component={RegisterForm} />
+              <Route exact path="/question/create" component={QuestionForm} />
             </ProtectedRoute>}
           </Switch>
         </Fragment>

@@ -9,6 +9,7 @@ export default function MainMenu({logout}) {
         <Link className="btn btn-default" to="/interview/create">New Candidate</Link>
         <Link className="btn btn-default" to="/interviews">View all candidates</Link>
         <Link className="btn btn-default" to="/register">Register New Interviewer/Admin (Admin Only)</Link>
+        <Link className="btn btn-default" to="/question/create">New Question</Link>
 
         <button className="btn btn-primary" onClick={logout}>Logout</button>
 
