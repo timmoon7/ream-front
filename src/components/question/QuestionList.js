@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import api from '../api/questionAPI'
+import api from '../../api/questionAPI'
 import ReactTable from 'react-table'
 import { Link } from 'react-router-dom'
 import QuestionForm from './QuestionForm'
-import './LoginForm.css'
-import './ReactTables.css'
+import '../LoginForm.css'
+import '../ReactTables.css'
 
 class QuestionList extends Component {
 

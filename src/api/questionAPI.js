@@ -1,6 +1,5 @@
 import axios from './init'
 
-// GET
 export default {
     getQuestions,
     getQuestion,
@@ -9,17 +8,18 @@ export default {
     deleteQuestion,
 }
 
+// GET
 async function getQuestions() {
     const response = await axios.get('/questions')
     return response.data
 }
 
+// GET
 async function getQuestion(id) {
     const uri = `/questions/${id}`
     const response = await axios.get(uri)
     return response.data
 }
-
 
 // POST
 async function createQuestion(question) {

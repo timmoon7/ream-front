@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import api from '../api/userAPI'
+import api from '../../api/userAPI'
 import RegisterForm from './RegisterForm'
 import ReactTable from 'react-table'
 import { Link } from 'react-router-dom'
-import './ReactTables.css'
+import '../ReactTables.css'
 
 class UserList extends Component {
 

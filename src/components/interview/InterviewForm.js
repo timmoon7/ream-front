@@ -1,6 +1,5 @@
 import React from 'react'
-import api from '../api/interviewAPI'
-
+import api from '../../api/interviewAPI'
 
 export default function InterviewForm(props) {
 
@@ -45,7 +44,6 @@ export default function InterviewForm(props) {
         </select>
     </p>
 
-    
     <p>
         <label htmlFor="intake">Intake: </label>
         <select name="intake" id="intake">
@@ -62,14 +60,15 @@ export default function InterviewForm(props) {
             <option value="Brisbane">Brisbane</option>
         </select>
     </p>
+    
     <p>
         <label htmlFor="date_time">Interview Date: </label>
-        <input type="text" name="date_time" defaultValue={default_date}  /> 
+        <input type="text" name="date_time" defaultValue={default_date} required="required" /> 
     </p>
 
     <p>
         <label htmlFor="email">Email: </label>
-        <input type="email" name="email" />
+        <input type="email" name="email" required="required" />
     </p>
 
     <p>
@@ -79,12 +78,12 @@ export default function InterviewForm(props) {
 
     <p>
         <label htmlFor="first_name">First Name: </label>
-        <input type="text" name="first_name" />
+        <input type="text" name="first_name" required="required" />
     </p>
 
     <p>
         <label htmlFor="last_name">Last Name: </label>
-        <input type="text" name="last_name" />
+        <input type="text" name="last_name" required="required" />
     </p>
 
     <p>

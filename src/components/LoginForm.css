@@ -11,17 +11,17 @@
     margin-top: 1em;
 }
   
-  .login input {
+.login input {
     width: 90%;
     height: 25px;
     box-sizing: border-box;
     background-color: #E5E5E5;
     font-size: 1em;
-  }
+}
   
-  input[type=submit] {
+input[type=submit] {
     background-color:slategray;
     color: snow;
     font-size: 1em;
     width: 60%;
-  }
+}

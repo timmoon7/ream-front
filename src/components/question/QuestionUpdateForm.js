@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import api from '../api/questionAPI'
+import api from '../../api/questionAPI'
 import {withRouter} from 'react-router-dom';
 
 class QuestionUpdateForm extends Component {
@@ -76,7 +76,7 @@ class QuestionUpdateForm extends Component {
 
                         <p>
                             <label htmlFor="title">Title</label>
-                            <input type="text" name="title" defaultValue={title} /> 
+                            <input type="text" name="title" defaultValue={title} required="required" /> 
                         </p>
 
                         <p>
@@ -86,32 +86,32 @@ class QuestionUpdateForm extends Component {
 
                         <p>
                             <label htmlFor="priority">Priority</label>
-                            <input type="number" name="priority" defaultValue={priority} /> 
+                            <input type="number" name="priority" defaultValue={priority} required="required" /> 
                         </p>
 
                         <p>
                             <label htmlFor="item1">Point 1: </label>
-                            <input type="text" name="item1" defaultValue={criteria[0].item} size="50" />
+                            <input type="text" name="item1" defaultValue={criteria[0].item} size="50" required="required" />
                         </p>
 
                         <p>
                             <label htmlFor="item2">Point 2: </label>
-                            <input type="text" name="item2" defaultValue={criteria[1].item} size="50" />
+                            <input type="text" name="item2" defaultValue={criteria[1].item} size="50" required="required" />
                         </p>
 
                         <p>
                             <label htmlFor="item3">Point 3: </label>
-                            <input type="text" name="item3" defaultValue={criteria[2].item} size="50" />
+                            <input type="text" name="item3" defaultValue={criteria[2].item} size="50" required="required" />
                         </p>
 
                         <p>
                             <label htmlFor="item4">Point 4: </label>
-                            <input type="text" name="item4" defaultValue={criteria[3].item} size="50" />
+                            <input type="text" name="item4" defaultValue={criteria[3].item} size="50" required="required" />
                         </p>
 
                         <p>
                             <label htmlFor="item5">Point 5: </label>
-                            <input type="text" name="item5" defaultValue={criteria[4].item} size="50" />
+                            <input type="text" name="item5" defaultValue={criteria[4].item} size="50" required="required" />
                         </p>
 
                         <input type="submit" value="Edit Question" />

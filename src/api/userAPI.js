@@ -1,6 +1,5 @@
 import axios from './init'
 
-// GET
 export default {
     getUsers,
     getUser,
@@ -9,21 +8,21 @@ export default {
     deleteUser,
 }
 
+// GET
 async function getUsers() {
     const response = await axios.get('/users')
     return response.data
 }
 
+// GET
 async function getUser(id) {
     const uri = `/users/${id}`
     const response = await axios.get(uri)
     return response.data
 }
 
-
 // POST
 async function createUser(user) {
-    console.log(user)
     const uri = '/users'
 
     const response = await axios.post(uri, user)

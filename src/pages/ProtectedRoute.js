@@ -1,7 +1,5 @@
-import React, {Component} from 'react'
-import {
-    Redirect
-} from 'react-router-dom'
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 
 export default class ProtectedRoute extends Component {
     
@@ -11,6 +9,5 @@ export default class ProtectedRoute extends Component {
         }
 
         return this.props.children
-
     }
 }

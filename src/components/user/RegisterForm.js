@@ -1,6 +1,6 @@
 import React from 'react'
-import './LoginForm.css'
-import api from '../api/userAPI'
+import '../LoginForm.css'
+import api from '../../api/userAPI'
 
 export default function RegisterForm() {
 
@@ -31,11 +31,12 @@ export default function RegisterForm() {
             <h1>Register New User</h1>
             <p> 
                 <label htmlFor="first_name">First Name: </label>
-                <input type="text" name="first_name"/>
+                <input type="text" name="first_name" required="required"  />
             </p>
+            
             <p> 
                 <label htmlFor="last_name">Last Name: </label>
-                <input type="text" name="last_name"/>
+                <input type="text" name="last_name" required="required"  />
                 </p>
                 
             <p>
@@ -57,12 +58,12 @@ export default function RegisterForm() {
 
             <p>
               <label htmlFor="email">Email: </label>
-              <input type="email" name="email"/>
+              <input type="email" name="email" required="required"  />
             </p>
 
             <p>
               <label htmlFor="password">Password: </label>
-              <input type="password" name="password"/>
+              <input type="password" name="password" required="required"  />
             </p>
 
             <p>

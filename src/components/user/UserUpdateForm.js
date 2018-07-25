@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import api from '../api/userAPI'
+import api from '../../api/userAPI'
 import {withRouter} from 'react-router-dom';
 
 class UserUpdateForm extends Component {
@@ -59,11 +59,12 @@ class UserUpdateForm extends Component {
                     <form onSubmit={this.onSubmit}>
                         <p> 
                             <label htmlFor="first_name">First Name: </label>
-                            <input type="text" name="first_name" defaultValue={user.first_name} />
+                            <input type="text" name="first_name" defaultValue={user.first_name} required="required" />
                         </p>
+
                         <p> 
                             <label htmlFor="last_name">Last Name: </label>
-                            <input type="text" name="last_name" defaultValue={user.last_name}/>
+                            <input type="text" name="last_name" defaultValue={user.last_name} required="required" />
                             </p>
                             
                         <p>
@@ -84,17 +85,17 @@ class UserUpdateForm extends Component {
                         </p>
             
                         <p>
-                        <label htmlFor="email">Email: </label>
-                        <input type="email" name="email" defaultValue={user.email}/>
+                            <label htmlFor="email">Email: </label>
+                            <input type="email" name="email" defaultValue={user.email} required="required" />
                         </p>
             
                         <p>
-                        <label htmlFor="password">Password: </label>
-                        <input type="password" name="password"/>
+                            <label htmlFor="password">Password: </label>
+                            <input type="password" name="password"/>
                         </p>
             
                         <p>
-                        <input type="submit" value="Update"/>
+                            <input type="submit" value="Update"/>
                         </p>
                     </form>
                 </div>

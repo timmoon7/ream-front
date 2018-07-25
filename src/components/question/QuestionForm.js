@@ -1,5 +1,5 @@
 import React from 'react'
-import api from '../api/questionAPI'
+import api from '../../api/questionAPI'
 
 
 export default function QuestionForm(props) {
@@ -47,7 +47,7 @@ export default function QuestionForm(props) {
         </select>&nbsp;&nbsp;
         <br/> <br/>
         <label htmlFor="title">Title: </label><br/>
-        <input type="text" name="title" /> 
+        <input type="text" name="title" required="required" /> 
     </p>
 
     <p>
@@ -57,31 +57,31 @@ export default function QuestionForm(props) {
 
     <p>
         <label htmlFor="item1">Point 1: </label>
-        <input type="text" name="item1" size="50" />
+        <input type="text" name="item1" size="50" required="required" />
         <input type="hidden" name="point1" value="1" />
     </p>
 
     <p>
         <label htmlFor="item2">Point 2: </label>
-        <input type="text" name="item2" size="50" />
+        <input type="text" name="item2" size="50" required="required" />
         <input type="hidden" name="point2" value="2" />
     </p>
 
     <p>
         <label htmlFor="item3">Point 3: </label>
-        <input type="text" name="item3" size="50" />
+        <input type="text" name="item3" size="50" required="required" />
         <input type="hidden" name="point3" value="3" />
     </p>
 
     <p>
         <label htmlFor="item4">Point 4: </label>
-        <input type="text" name="item4" size="50" />
+        <input type="text" name="item4" size="50" required="required" />
         <input type="hidden" name="point4" value="4" />
     </p>
 
     <p>
         <label htmlFor="item5">Point 5: </label>
-        <input type="text" name="item5" size="50" />
+        <input type="text" name="item5" size="50" required="required" />
         <input type="hidden" name="point5" value="5" />
     </p>
 
