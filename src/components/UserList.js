@@ -3,7 +3,7 @@ import api from '../api/userAPI'
 import RegisterForm from './RegisterForm'
 import ReactTable from 'react-table'
 import { Link } from 'react-router-dom'
-
+import './ReactTables.css'
 
 class UserList extends Component {
 
@@ -35,15 +35,15 @@ class UserList extends Component {
         }
 
         function Expand({_id, first_name, last_name, email, campus, role}) {
-            return <li>
-                    <p>Name: {first_name + last_name}</p>
-                    <p>Email: {email}</p>
-                    <p>Campus: {campus}</p>
-                    <p>Role {role}</p>
+            return <div className="expandsection">
+                    <p class="utitle">Name: <span class="uvalue"> {first_name} {last_name}</span></p>
+                    <p class="utitle">Email: <span class="uvalue"> {email}</span></p>
+                    <p class="utitle">Campus: <span class="uvalue"> {campus}</span></p>
+                    <p class="utitle">Role: <span class="uvalue"> {role}</span></p>
                     <button>
                         <Link to={{pathname: `/users/${_id}/edit`}}>Edit</Link>
                     </button>
-                </li>       
+                </div>       
         }
 
         return (

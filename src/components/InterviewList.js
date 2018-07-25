@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import api from '../api/interviewAPI'
 import ReactTable from 'react-table'
 import { Link } from 'react-router-dom'
-import './InterviewList.css'
+import './ReactTables.css'
 
 class InterviewList extends Component {
 

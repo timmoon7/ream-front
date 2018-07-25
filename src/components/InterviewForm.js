@@ -36,8 +36,7 @@ export default function InterviewForm(props) {
         }
     }>
 
-    <h1> New Candidate </h1>
-    
+    <h1>New Candidate</h1>
     <p>
         <label htmlFor="year">Year: </label>
         <select name="year" id="year">

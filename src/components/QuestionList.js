@@ -3,7 +3,8 @@ import api from '../api/questionAPI'
 import ReactTable from 'react-table'
 import { Link } from 'react-router-dom'
 import QuestionForm from './QuestionForm'
-import Css from './LoginForm.css'
+import './LoginForm.css'
+import './ReactTables.css'
 
 class QuestionList extends Component {
 
@@ -24,21 +25,23 @@ class QuestionList extends Component {
         }
         
         function Expand({_id, category, title, description, criteria, priority, comment}) {
-            return <div>
-                <p>Category: {category}</p>
-                <p>Title: {title}</p>
-                <p>Description: {description}</p>
-                <p>Priority: {priority}</p>
-                <div>Criteria:
+            return <div className="expandsection">
+                <p class="qtitle">Category: <span class="qvalue"> {category}</span></p>
+                <p class="qtitle">Title: <span class="qvalue"> {title}</span></p>
+                <p class="qtitle">Description: <span class="qvalue"> {description}</span></p>
+                <p class="qtitle">Priority: <span class="qvalue"> {priority}</span></p>
+                <div><p class="qtitle">Criteria:</p>
                     <ul>
-                        <li>{criteria[0].value}: {criteria[0].item}</li>
-                        <li>{criteria[1].value}: {criteria[1].item}</li>
-                        <li>{criteria[2].value}: {criteria[2].item}</li>
-                        <li>{criteria[3].value}: {criteria[3].item}</li>
-                        <li>{criteria[4].value}: {criteria[4].item}</li>
+                        <li class="qtitle">{criteria[0].value}: <span class="qvalue">{criteria[0].item}</span></li>
+                        <li class="qtitle">{criteria[1].value}: <span class="qvalue">{criteria[1].item}</span></li>
+                        <li class="qtitle">{criteria[2].value}: <span class="qvalue">{criteria[2].item}</span></li>
+                        <li class="qtitle">{criteria[3].value}: <span class="qvalue">{criteria[3].item}</span></li>
+                        <li class="qtitle">{criteria[4].value}: <span class="qvalue">{criteria[4].item}</span></li>
                     </ul>
                 </div>
+                <button>
                 <Link to={{pathname: `/questions/${_id}/edit`}}>Edit</Link>
+                </button>
                 </div>     
         }
         
