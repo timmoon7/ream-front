@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import api from '../api/interviewAPI'
 import ReactTable from 'react-table'
 import { Link } from 'react-router-dom'
-import './InterviewList.css'
+import './ReactTables.css'
 
 class InterviewList extends Component {
 
@@ -35,7 +35,7 @@ class InterviewList extends Component {
         const {interviews} = this.state
 
         if(!interviews) {
-            return <div> No Interview Data...</div>
+            return <div> Loading...</div>
         }
     
         function Expand({_id, intake, year, interviewee, test_score, student_id, 

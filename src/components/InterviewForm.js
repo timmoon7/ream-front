@@ -35,7 +35,8 @@ export default function InterviewForm(props) {
             createInterview(payload)
         }
     }>
-    
+
+    <h1>New Candidate</h1>
     <p>
         <label htmlFor="year">Year: </label>
         <select name="year" id="year">

@@ -4,7 +4,7 @@ import './LoginForm.css'
 export default function LoginForm({handleSubmit}) {
     return (
         <div className="login">
-          <h2>Login</h2>
+          <h1>Login</h1>
           <form onSubmit={(e) => {
             e.preventDefault()
             const form = e.target.elements

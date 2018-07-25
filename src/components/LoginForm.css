@@ -5,20 +5,23 @@
     background-color: white;
     text-align: center;
     margin: 0 auto;
-    width: 20em;
+    width: 28em;
     padding: 1em;
     box-shadow: 0 .1em .2em -.1em black;
     margin-top: 1em;
-
-  }
+}
   
   .login input {
-    width: 100%;
+    width: 90%;
     height: 25px;
     box-sizing: border-box;
     background-color: #E5E5E5;
+    font-size: 1em;
   }
   
   input[type=submit] {
     background-color:slategray;
+    color: snow;
+    font-size: 1em;
+    width: 60%;
   }

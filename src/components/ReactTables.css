@@ -1,15 +1,15 @@
-p.name { 
+p.name, span.qvalue, p.utitle{ 
     color: #000000;
 }
 
-span.value {
+span.value, p.qtitle, li.qtitle, span.uvalue {
     color: #AD0817;
     font-weight: bold;
    
 }
+
 .expandsection {
     padding-left: 20px;
-    /* text-align: center */
 }
 
 .expandsection button {
