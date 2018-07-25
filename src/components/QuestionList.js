@@ -44,6 +44,7 @@ class QuestionList extends Component {
         return (
             <div>
                 <QuestionForm />
+                <h3>Current Questions</h3>
                 <ReactTable
                     data={questions}
                     className="-striped -highlight"

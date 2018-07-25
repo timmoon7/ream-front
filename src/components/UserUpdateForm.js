@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import userApi from '../api/userAPI'
+import api from '../api/userAPI'
+import {withRouter} from 'react-router-dom';
 
 class UserUpdateForm extends Component {
 
@@ -8,14 +9,22 @@ class UserUpdateForm extends Component {
     }
 
     async componentDidMount() {
-        const user = await userApi.getUser(this.props.userId)
+        const user = await api.getUser(this.props.userId)
         this.setState({user})
     }
 
     async updateUser(payload) {
         const userId = this.state.user._id
-        const user = await userApi.updateUser(userId, payload)
+        const user = await api.updateUser(userId, payload)
         return this.setState({user})
+    }
+    
+    deleteUser(id) {
+        api.deleteUser(id)
+        .then(() => {
+            this.props.history.push('/users')
+        })
+        .catch((err) => console.error(err))
     }
 
     onSubmit = (e) => {
@@ -38,51 +47,56 @@ class UserUpdateForm extends Component {
         if (!user) return null;
 
         return (
-        <div className="update"> 
-            <form onSubmit={this.onSubmit}>
-                <h3>Update User</h3>
-                <p> 
-                    <label htmlFor="first_name">First Name: </label>
-                    <input type="text" name="first_name" defaultValue={user.first_name} />
-                </p>
-                <p> 
-                    <label htmlFor="last_name">Last Name: </label>
-                    <input type="text" name="last_name" defaultValue={user.last_name}/>
-                    </p>
-                    
-                <p>
-                    <label htmlFor="campus" >Campus: </label>
-                    <select name="campus" id="campus" defaultValue={user.campus}>
-                        <option value="Melbourne">Melbourne</option>
-                        <option value="Sydney">Sydney</option>
-                        <option value="Brisbane">Brisbane</option>
-                    </select>
-                </p>
-    
-                <p>
-                    <label htmlFor="role">Role: </label>
-                    <select name="role" id="role" defaultValue={user.role}>
-                        <option value="User">User</option>
-                        <option value="Admin">Admin</option>
-                    </select>
-                </p>
-    
-                <p>
-                  <label htmlFor="email">Email: </label>
-                  <input type="email" name="email" defaultValue={user.email}/>
-                </p>
-    
-                <p>
-                  <label htmlFor="password">Password: </label>
-                  <input type="password" name="password"/>
-                </p>
-    
-                <p>
-                  <input type="submit" value="Update"/>
-                </p>
-            </form>
+            <div>
+                <button onClick={() => {
+                    this.deleteUser(user._id)}}>Delete This User
+                </button>
+                <div className="update"> 
+                    <h3>Update User</h3>
+                    <form onSubmit={this.onSubmit}>
+                        <p> 
+                            <label htmlFor="first_name">First Name: </label>
+                            <input type="text" name="first_name" defaultValue={user.first_name} />
+                        </p>
+                        <p> 
+                            <label htmlFor="last_name">Last Name: </label>
+                            <input type="text" name="last_name" defaultValue={user.last_name}/>
+                            </p>
+                            
+                        <p>
+                            <label htmlFor="campus" >Campus: </label>
+                            <select name="campus" id="campus" defaultValue={user.campus}>
+                                <option value="Melbourne">Melbourne</option>
+                                <option value="Sydney">Sydney</option>
+                                <option value="Brisbane">Brisbane</option>
+                            </select>
+                        </p>
+            
+                        <p>
+                            <label htmlFor="role">Role: </label>
+                            <select name="role" id="role" defaultValue={user.role}>
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                        </p>
+            
+                        <p>
+                        <label htmlFor="email">Email: </label>
+                        <input type="email" name="email" defaultValue={user.email}/>
+                        </p>
+            
+                        <p>
+                        <label htmlFor="password">Password: </label>
+                        <input type="password" name="password"/>
+                        </p>
+            
+                        <p>
+                        <input type="submit" value="Update"/>
+                        </p>
+                    </form>
+                </div>
         </div>
     )}
 }
 
-export default UserUpdateForm
+export default withRouter(UserUpdateForm)

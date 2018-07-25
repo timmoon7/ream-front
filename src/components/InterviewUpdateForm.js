@@ -91,7 +91,6 @@ class InterviewUpdateForm extends Component {
                 <button onClick={() => {
                     this.deleteInterview(interview._id)}}>Delete This Interview
                 </button>
-
                 <form onSubmit={this.onSubmit}>
                     <p>
                         <label htmlFor="interviewee">Interviewee: </label>
