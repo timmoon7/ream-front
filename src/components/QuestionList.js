@@ -19,7 +19,7 @@ class QuestionList extends Component {
         const {questions} = this.state
 
         if(!questions) {
-            return <div> No Question Data...</div>
+            return <div> Loading...</div>
         }
         
         function Expand({_id, category, title, description, criteria, priority, comment}) {
