@@ -1,0 +1,35 @@
+p.name { 
+    color: #000000;
+}
+
+span.value {
+    color: #AD0817;
+    font-weight: bold;
+   
+}
+.expandsection {
+    padding-left: 20px;
+    /* text-align: center */
+}
+
+.expandsection button {
+    background: lightgray;
+    color: #404040;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.expandsection button a{
+    text-decoration: none;
+    color: black
+}
+
+.expandsection button:hover {
+    background: slategray;
+    color: snow;
+}
