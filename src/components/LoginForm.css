@@ -21,4 +21,6 @@
   
   input[type=submit] {
     background-color:slategray;
+    color: snow;
+    font-size: 1em;
   }
