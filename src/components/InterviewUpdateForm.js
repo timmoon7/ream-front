@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import interviewApi from '../api/interviewAPI'
-
+import './InterviewForm.css'
 class InterviewUpdateForm extends Component {
 
     state = {
@@ -87,7 +87,8 @@ class InterviewUpdateForm extends Component {
         console.log(interview);
         
         return ( 
-            <form onSubmit={this.onSubmit}>
+
+            <div className="interview"><form onSubmit={this.onSubmit}>
                 <p>
                     <label htmlFor="interviewee">Interviewee: </label>
                     {interviewee.first_name + ' ' + interviewee.last_name}
@@ -140,6 +141,7 @@ class InterviewUpdateForm extends Component {
                     <input value="submit" type="submit" />
                 </p> 
             </form>
+            </div>
         )
     }
 }
