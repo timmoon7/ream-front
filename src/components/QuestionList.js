@@ -24,6 +24,7 @@ class QuestionList extends Component {
         
         function Expand({_id, category, title, description, criteria, priority, comment}) {
             return <div>
+                
                 <p>Category: {category}</p> 
                 <p>Title: {title}</p>
                 <p>Description: {description}</p>
@@ -43,7 +44,9 @@ class QuestionList extends Component {
         
         return (
             <div>
+                <h1> Add New Question </h1>
                 <QuestionForm />
+                <h1> Current Questions </h1>
                 <ReactTable
                     data={questions}
                     className="-striped -highlight"
