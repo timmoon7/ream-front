@@ -6,7 +6,7 @@ import interviewAPI from './api/interviewAPI'
 import questionAPI from './api/questionAPI'
 import userAPI from './api/userAPI'
 import logo from './logo.jpg'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 
 import MainMenu from './pages/MainMenu'
 import ProtectedRoute from './pages/ProtectedRoute'
@@ -80,7 +80,9 @@ class App extends Component {
     return( 
     <BrowserRouter>
       <Fragment>
-        <img src={logo} className="App-logo" alt="logo" />
+          <Link className="logo" to="/">
+            <img src={logo} className="App-logo" alt="logo" />
+          </Link>
           <Switch>
             <Route path="/" exact render={() => {
               return isLoggedIn ? 
