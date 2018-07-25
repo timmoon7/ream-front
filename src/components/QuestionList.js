@@ -3,6 +3,7 @@ import api from '../api/questionAPI'
 import ReactTable from 'react-table'
 import { Link } from 'react-router-dom'
 import QuestionForm from './QuestionForm'
+import Css from './LoginForm.css'
 
 class QuestionList extends Component {
 
@@ -24,8 +25,7 @@ class QuestionList extends Component {
         
         function Expand({_id, category, title, description, criteria, priority, comment}) {
             return <div>
-                
-                <p>Category: {category}</p> 
+                <p>Category: {category}</p>
                 <p>Title: {title}</p>
                 <p>Description: {description}</p>
                 <p>Priority: {priority}</p>
@@ -44,8 +44,10 @@ class QuestionList extends Component {
         
         return (
             <div>
+                <div className="login">
                 <h1> Add New Question </h1>
                 <QuestionForm />
+                </div>
                 <h1> Current Questions </h1>
                 <ReactTable
                     data={questions}

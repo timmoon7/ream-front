@@ -49,7 +49,7 @@ class UserList extends Component {
         return (
             <div>
                 <RegisterForm />
-                <h3>Current Users</h3>
+                <h1>Current Users</h1>
                 <div>
                     <ReactTable
                         data={users}

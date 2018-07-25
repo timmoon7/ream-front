@@ -45,6 +45,7 @@ export default function QuestionForm(props) {
             <option value="Technical Skills">Technical Skills</option>
             <option value="Soft Skills">Soft Skills</option>
         </select>&nbsp;&nbsp;
+        <br/> <br/>
         <label htmlFor="title">Title: </label>
         <input type="text" name="title" /> 
     </p>
