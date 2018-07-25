@@ -34,7 +34,6 @@ async function createUser(user) {
 async function updateUser(id, payload) {
     const uri = `/users/${id}`
     const response = await axios.patch(uri, payload)
-    // console.log(`Update Response Data: ${response.data.name}`)
     return response.data
 }
 

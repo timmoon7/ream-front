@@ -1,28 +1,42 @@
 import React, { Component } from 'react';
-import api from '../api/interviewAPI'
+import interviewAPI from '../api/interviewAPI'
+import userAPI from '../api/userAPI'
 import {withRouter} from 'react-router-dom';
 
 class InterviewUpdateForm extends Component {
 
     state = {
         interview: null,
+        userNames: null
     }
 
     async componentDidMount() {
-        const interview = await api.getInterview(this.props.interviewId)
-        this.setState({interview})
+        const interview = await interviewAPI.getInterview(this.props.interviewId)
+        const users = await userAPI.getUsers()
+        const userNames = []
+        users.map(user => {           
+            if(interview.campus === user.campus) {
+                 userNames.push(user.first_name + ' ' + user.last_name)
+            }
+            return user
+        })
+        if (!userNames){ 
+            userNames.push("")
+        }
+        this.setState({interview, userNames})
     }
 
     updateInterview(payload) {
         const interviewId = this.state.interview._id
-        api.updateInterview(interviewId, payload)
+        interviewAPI.updateInterview(interviewId, payload)
         .then((interview) => {
-            return this.setState({interview})
+            this.props.history.push('/interviews')
         })
+        .catch((err) => console.error(err))
     }
 
     deleteInterview(id) {
-        api.deleteInterview(id)
+        interviewAPI.deleteInterview(id)
         .then(() => {
             this.props.history.push('/interviews')
         })
@@ -63,9 +77,11 @@ class InterviewUpdateForm extends Component {
                 })
                 scores.push({title: input.name, category: input.id, score: input.value })
             }
+            return elm
         })
 
         const payload = {
+            interviewer: e.target.interviewer.value,
             duration: e.target.duration.value,
             test_score: e.target.test_score.value,
             outcome: e.target.outcome.value,
@@ -92,6 +108,16 @@ class InterviewUpdateForm extends Component {
                     this.deleteInterview(interview._id)}}>Delete This Interview
                 </button>
                 <form onSubmit={this.onSubmit}>
+
+                    <p>
+                        <label htmlFor="interviewer">Interviewer: </label>
+                        <select name="interviewer" id="interviewer" defaultValue={interview.interviewer ? interview.interviewer : this.state.userNames[0]}>
+                            {this.state.userNames.map((name, i) => {
+                                return  <option key={i} value={name}>{name}</option>
+                            })}
+                        </select>
+                    </p>
+
                     <p>
                         <label htmlFor="interviewee">Interviewee: </label>
                         {interviewee.first_name + ' ' + interviewee.last_name}

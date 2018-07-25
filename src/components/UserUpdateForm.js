@@ -13,10 +13,13 @@ class UserUpdateForm extends Component {
         this.setState({user})
     }
 
-    async updateUser(payload) {
+    updateUser(payload) {
         const userId = this.state.user._id
-        const user = await api.updateUser(userId, payload)
-        return this.setState({user})
+        api.updateUser(userId, payload)
+        .then((user) => {
+            this.props.history.push('/users')
+        })
+        .catch((err) => console.error(err))
     }
     
     deleteUser(id) {

@@ -36,10 +36,10 @@ class UserList extends Component {
 
         function Expand({_id, first_name, last_name, email, campus, role}) {
             return <div className="expandsection">
-                    <p class="utitle">Name: <span class="uvalue"> {first_name} {last_name}</span></p>
-                    <p class="utitle">Email: <span class="uvalue"> {email}</span></p>
-                    <p class="utitle">Campus: <span class="uvalue"> {campus}</span></p>
-                    <p class="utitle">Role: <span class="uvalue"> {role}</span></p>
+                    <p className="utitle">Name: <span className="uvalue"> {first_name} {last_name}</span></p>
+                    <p className="utitle">Email: <span className="uvalue"> {email}</span></p>
+                    <p className="utitle">Campus: <span className="uvalue"> {campus}</span></p>
+                    <p className="utitle">Role: <span className="uvalue"> {role}</span></p>
                     <button>
                         <Link to={{pathname: `/users/${_id}/edit`}}>Edit</Link>
                     </button>

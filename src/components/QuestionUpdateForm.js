@@ -17,8 +17,9 @@ class QuestionUpdateForm extends Component {
         const questionId = this.state.question._id
         api.updateQuestion(questionId, payload)
         .then((question) => {
-            return this.setState({question})
+            this.props.history.push('/questions')
         })
+        .catch((err) => console.error(err))
     }
 
     deleteQuestion(id) {

@@ -12,10 +12,12 @@ class InterviewList extends Component {
 
     async componentDidMount() {
         const interviews = await api.getInterviews()
+        
         interviews.map(interview => {
             const modify_date = new Date(interview.date_time);
             const interview_date = modify_date.getDate()+'-'+(modify_date.getMonth()+1)+'-'+modify_date.getFullYear();
             interview.date_time = interview_date
+            return interview
         })
         this.setState({interviews})
     }
@@ -50,7 +52,7 @@ class InterviewList extends Component {
                 const sumPerCategory = [0, 0]
                 for (let elm of scores) {
                     if (elm.category === category) {
-                        sumPerCategory[0] += parseInt(elm.score);
+                        sumPerCategory[0] += parseInt(elm.score, 10);
                         sumPerCategory[1] += 1
                     }
     
@@ -60,22 +62,22 @@ class InterviewList extends Component {
 
             return (
                 <div className="expandsection">
-                    <p class="name">Intake: <span class="value"> {intake}</span></p> 
-                    <p class="name">Year: <span class="value"> {year}</span></p>
-                    <p class="name">Email: <span class="value"> {interviewee.email}</span></p>
-                    <p class="name">Phone: <span class="value"> {interviewee.phone}</span></p>
-                    <p class="name">Technical Skills Average: <span class="value"> {avg(scores, "Technical Skills")}</span></p>
-                    <p class="name">Soft Skills Average: <span class="value"> {avg(scores, "Soft Skills")}</span></p>
-                    <p class="name">Total / 10: <span class="value"> {avg(scores, "Technical Skills") + avg(scores, "Soft Skills")}</span></p>
-                    <p class="name">Interview Comments: <span class="value"> {comment}</span></p>
-                    <p class="name">Interview Duration: <span class="value"> {duration} minutes</span></p>
-                    <p class="name">Admission Test Result: <span class="value"> {test_score}</span></p>
-                    <p class="name">JR Updated: <span class="value"> {jr_updated ? "Yes" : "No"}</span></p>
-                    <p class="name">Hubspot Updated: <span class="value"> {hubspot_updated ? "Yes" : "No"}</span></p>
-                    <p class="name">Enrolment Confirmed: <span class="value"> {enrolment_confirmed ? "Yes" : "No"}</span></p>
-                    <p class="name">Outcome: <span class="value"> {outcome}</span></p>
-                    <p class="name">Outcome Comment: <span class="value"> {outcome_comment}</span></p>
-                    <p class="name">Student ID: <span class="value"> {student_id}</span></p>
+                    <p className="name">Intake: <span className="value"> {intake}</span></p> 
+                    <p className="name">Year: <span className="value"> {year}</span></p>
+                    <p className="name">Email: <span className="value"> {interviewee.email}</span></p>
+                    <p className="name">Phone: <span className="value"> {interviewee.phone}</span></p>
+                    <p className="name">Technical Skills Average: <span className="value"> {avg(scores, "Technical Skills")}</span></p>
+                    <p className="name">Soft Skills Average: <span className="value"> {avg(scores, "Soft Skills")}</span></p>
+                    <p className="name">Total / 10: <span className="value"> {avg(scores, "Technical Skills") + avg(scores, "Soft Skills")}</span></p>
+                    <p className="name">Interview Comments: <span className="value"> {comment}</span></p>
+                    <p className="name">Interview Duration: <span className="value"> {duration} minutes</span></p>
+                    <p className="name">Admission Test Result: <span className="value"> {test_score}</span></p>
+                    <p className="name">JR Updated: <span className="value"> {jr_updated ? "Yes" : "No"}</span></p>
+                    <p className="name">Hubspot Updated: <span className="value"> {hubspot_updated ? "Yes" : "No"}</span></p>
+                    <p className="name">Enrolment Confirmed: <span className="value"> {enrolment_confirmed ? "Yes" : "No"}</span></p>
+                    <p className="name">Outcome: <span className="value"> {outcome}</span></p>
+                    <p className="name">Outcome Comment: <span className="value"> {outcome_comment}</span></p>
+                    <p className="name">Student ID: <span className="value"> {student_id}</span></p>
                     <button>
                         <Link to={{pathname: `/interviews/${_id}/edit`}}>Start / Edit Interview</Link>
                     </button>
@@ -85,7 +87,7 @@ class InterviewList extends Component {
       
         return (
             <div>
-                <h3>Current Interviews</h3>
+                <h1>Current Interviews</h1>
                 <ReactTable
                     data={interviews}
                     className="-striped -highlight"
