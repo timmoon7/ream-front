@@ -132,7 +132,7 @@ class InterviewList extends Component {
                         return (
                         <div style={{ padding: "20px" }}>
                             <Expand {...row.original} />
-                            </div>  
+                        </div>  
                     )}} 
                 />
             </div>

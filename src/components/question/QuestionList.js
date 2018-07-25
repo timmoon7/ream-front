@@ -49,7 +49,7 @@ class QuestionList extends Component {
             <div>
                 <div className="login">
                 <h1> Add New Question </h1>
-                <QuestionForm />
+                    <QuestionForm />
                 </div>
                 <h1> Current Questions </h1>
                 <ReactTable
