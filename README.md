@@ -297,6 +297,8 @@ We recorded all of offical meetings that we had with our client as shown below i
 Please note the client questionnaire was filled out prior to submission date due to our client going on annual leave.
 
 ### <a id="33"></a> Post Project Review
+![projectreview](./images/projectreview.jpg)
+
 
 # <a id="c"></a> Part C
 The presentation slides have been included in the submitted documents.
