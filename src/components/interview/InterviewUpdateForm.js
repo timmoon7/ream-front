@@ -112,30 +112,27 @@ class InterviewUpdateForm extends Component {
 
         return ( 
             <div className="interviewform">
-                
-                <button onClick={() => {
-                    this.deleteInterview(interview._id)}}>Delete This Interview
-                </button>
-                <form onSubmit={this.onSubmit}>
+                    
+                    <form onSubmit={this.onSubmit}>
 
-                    <p>
-                        <label htmlFor="interviewer">Interviewer: </label>
+                        <div className="interviewheader">
+                        <h3><label htmlFor="interviewer">Interviewer: </label></h3>
                         <select name="interviewer" id="interviewer" defaultValue={interview.interviewer ? interview.interviewer : this.state.userNames[0]}>
                             {this.state.userNames.map((name, i) => {
                                 return  <option key={i} value={name}>{name}</option>
                             })}
-                        </select>
-                    </p>
-
+                        </select></div>
+                    
+                
                     <div className="interviewee">
-                        <h4>Interviewee: </h4>
+                        <h3>Interviewee: </h3>
                         <label htmlFor="first_name">First Name: </label>
-                        <input type="text" name="first_name" defaultValue={interviewee.first_name} required="required" />&nbsp;&nbsp; 
+                        <input type="text" name="first_name" defaultValue={interviewee.first_name} required="required" /><br/><br/> 
                         <label htmlFor="last_name">Last Name: </label>
-                        <input type="text" name="last_name" defaultValue={interviewee.last_name} required="required" /> 
-                        <br />
+                        <input type="text" name="last_name" defaultValue={interviewee.last_name} required="required" /><br/><br/> 
+                    
                         <label htmlFor="email">Email: </label>
-                        <input type="email" name="email" defaultValue={interviewee.email} required="required" />&nbsp;&nbsp;
+                        <input type="email" name="email" defaultValue={interviewee.email} required="required" /><br/><br/>
                         <label htmlFor="phone">Phone: </label>
                         <input type="text" name="phone" defaultValue={interviewee.phone} /> 
                     </div>
@@ -165,7 +162,7 @@ class InterviewUpdateForm extends Component {
                         </p>
 
                         <p>
-                            <label htmlFor="outcome_comment">Outcome Comments: </label>
+                            <label htmlFor="outcome_comment">Outcome Comments: </label><br/>
                             <textarea name="outcome_comment" className="interviewComment" defaultValue={interview.outcome_comment} rows="4" cols="50" /> 
                         </p>
 
@@ -190,12 +187,18 @@ class InterviewUpdateForm extends Component {
                         </p>
 
                         <p>
-                            <label htmlFor="comment">Comments: </label>
+                            <label htmlFor="comment">Comments: </label><br/>
                             <textarea name="comment" className="interviewComment" defaultValue={interview.comment} rows="4" cols="50" /> 
                         </p>
                         
                         <p>
                             <input value="Submit" type="submit" />
+                        </p>
+                        <br/><br/>
+                        <p>
+                            <button onClick={() => {
+                                this.deleteInterview(interview._id)}}>Delete This Interview
+                            </button>
                         </p>
                     </div>
                 </form>
