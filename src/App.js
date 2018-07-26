@@ -30,7 +30,6 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    document.title = "CA Admission Matrix"
     const questions = await questionAPI.getQuestions();
     const interviews = await interviewAPI.getInterviews();
     const users= await userAPI.getUsers();
