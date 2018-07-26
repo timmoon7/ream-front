@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api/questionAPI'
 import {withRouter} from 'react-router-dom';
+import './Forms.css'
 
 class QuestionUpdateForm extends Component {
     
@@ -59,12 +60,12 @@ class QuestionUpdateForm extends Component {
         const {_id, category, title, description, criteria, priority} = question;
         
         return (
-            <div>                
+            <div className="update">                
                 <button onClick={() => {
                     this.deleteQuestion(_id)}}>Delete This Question
                 </button>
-                <div className="update"> 
-                    <h3>Current Questions</h3>
+                <div> 
+                    <h1>Current Questions</h1>
                     <form onSubmit={this.onSubmit}>
                         <p>
                             <label htmlFor="category">Category: </label>
@@ -73,7 +74,7 @@ class QuestionUpdateForm extends Component {
                                 <option value="Soft Skills">Soft Skills</option>
                             </select>
                         </p>
-
+                        
                         <p>
                             <label htmlFor="title">Title</label>
                             <input type="text" name="title" defaultValue={title} required="required" /> 

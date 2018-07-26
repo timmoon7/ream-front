@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api/userAPI'
 import {withRouter} from 'react-router-dom';
+import './Forms.css'
 
 class UserUpdateForm extends Component {
 
@@ -50,12 +51,12 @@ class UserUpdateForm extends Component {
         if (!user) return null;
 
         return (
-            <div>
+            <div className="update">
                 <button onClick={() => {
                     this.deleteUser(user._id)}}>Delete This User
                 </button>
-                <div className="update"> 
-                    <h3>Update User</h3>
+                <div> 
+                    <h1>Update User</h1>
                     <form onSubmit={this.onSubmit}>
                         <p> 
                             <label htmlFor="first_name">First Name: </label>

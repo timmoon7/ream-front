@@ -1,5 +1,5 @@
 import React from 'react'
-import './LoginForm.css'
+import './Forms.css'
 
 export default function LoginForm({handleSubmit}) {
     return (

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import interviewAPI from '../../api/interviewAPI'
 import userAPI from '../../api/userAPI'
 import {withRouter} from 'react-router-dom';
+import './Forms.css'
 
 class InterviewUpdateForm extends Component {
 
@@ -53,6 +54,7 @@ class InterviewUpdateForm extends Component {
                             <div key={question._id}>
                                 <fieldset id={question._id} title={question.title} category={question.category} style={{margin: 30, textAlign: 'left'}}>
                                     <legend>{question.category}/{question.title}</legend>
+                                    <h2>{question.description}</h2>
                                     { question.criteria.map( (criteria, i) => 
                                         <div key={i}>
                                             <input type="radio" defaultChecked={answer && (answer.score - 1) === i} name={question.title} id={question.category} value={criteria.value} /> {criteria.value}: {criteria.item}
@@ -103,7 +105,8 @@ class InterviewUpdateForm extends Component {
         const {interviewee} = interview;
 
         return ( 
-            <div>
+            <div className="interviewform">
+                
                 <button onClick={() => {
                     this.deleteInterview(interview._id)}}>Delete This Interview
                 </button>
@@ -118,12 +121,14 @@ class InterviewUpdateForm extends Component {
                         </select>
                     </p>
 
-                    <p>
+                    <h3>
                         <label htmlFor="interviewee">Interviewee: </label>
                         {interviewee.first_name + ' ' + interviewee.last_name}
-                    </p>
+                    </h3>
 
                     {this.renderQuestions(interview.scores)}
+
+                    <div className="interviewinputs">
                     <p>
                         <label htmlFor="duration">Duration: </label>
                         <input type="number" name="duration" defaultValue={interview.duration}/> minutes 
@@ -172,12 +177,13 @@ class InterviewUpdateForm extends Component {
 
                     <p>
                         <label htmlFor="comment">Comments: </label>
-                        <input type="text" name="comment"  defaultValue={interview.comment} /> 
+                        <input type="text" name="comment" defaultValue={interview.comment} /> 
                     </p>
                     
                     <p>
-                        <input value="submit" type="submit" />
-                    </p> 
+                        <input value="Submit" type="submit" />
+                    </p>
+                    </div>
                 </form>
             </div>
         )
