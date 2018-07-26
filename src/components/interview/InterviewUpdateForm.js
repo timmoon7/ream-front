@@ -84,6 +84,12 @@ class InterviewUpdateForm extends Component {
 
         const payload = {
             interviewer: e.target.interviewer.value,
+            interviewee: {
+                first_name: e.target.first_name.value,
+                last_name: e.target.last_name.value,
+                email: e.target.email.value,
+                phone: e.target.phone.value,
+            },
             duration: e.target.duration.value,
             test_score: e.target.test_score.value,
             outcome: e.target.outcome.value,
@@ -121,68 +127,76 @@ class InterviewUpdateForm extends Component {
                         </select>
                     </p>
 
-                    <h3>
-                        <label htmlFor="interviewee">Interviewee: </label>
-                        {interviewee.first_name + ' ' + interviewee.last_name}
-                    </h3>
+                    <div className="interviewee">
+                        <h4>Interviewee: </h4>
+                        <label htmlFor="first_name">First Name: </label>
+                        <input type="text" name="first_name" defaultValue={interviewee.first_name} required="required" />&nbsp;&nbsp; 
+                        <label htmlFor="last_name">Last Name: </label>
+                        <input type="text" name="last_name" defaultValue={interviewee.last_name} required="required" /> 
+                        <br />
+                        <label htmlFor="email">Email: </label>
+                        <input type="email" name="email" defaultValue={interviewee.email} required="required" />&nbsp;&nbsp;
+                        <label htmlFor="phone">Phone: </label>
+                        <input type="text" name="phone" defaultValue={interviewee.phone} /> 
+                    </div>
 
                     {this.renderQuestions(interview.scores)}
 
                     <div className="interviewinputs">
-                    <p>
-                        <label htmlFor="duration">Duration: </label>
-                        <input type="number" name="duration" defaultValue={interview.duration}/> minutes 
-                    </p>
+                        <p>
+                            <label htmlFor="duration">Duration: </label>
+                            <input type="number" name="duration" defaultValue={interview.duration}/> minutes 
+                        </p>
 
-                    <p>
-                        <label htmlFor="test_score">Admissions Test Score: </label>
-                        <input type="number" name="test_score" defaultValue={interview.test_score} /> 
-                    </p>
+                        <p>
+                            <label htmlFor="test_score">Admissions Test Score: </label>
+                            <input type="number" name="test_score" defaultValue={interview.test_score} /> 
+                        </p>
 
-                    <p>
-                        <label htmlFor="outcome">Outcome: </label>
-                        <select name="outcome" id="outcome" defaultValue={interview.outcome}>
-                            <option value="Pending">Pending</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                            <option value="Withdrawn">Withdrawn</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </p>
+                        <p>
+                            <label htmlFor="outcome">Outcome: </label>
+                            <select name="outcome" id="outcome" defaultValue={interview.outcome}>
+                                <option value="Pending">Pending</option>
+                                <option value="Accepted">Accepted</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Withdrawn">Withdrawn</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </p>
 
-                    <p>
-                        <label htmlFor="outcome_comment">Outcome Comments: </label>
-                        <input type="text" name="outcome_comment"  defaultValue={interview.outcome_comment}/> 
-                    </p>
+                        <p>
+                            <label htmlFor="outcome_comment">Outcome Comments: </label>
+                            <textarea name="outcome_comment" className="interviewComment" defaultValue={interview.outcome_comment} rows="4" cols="50" /> 
+                        </p>
 
-                    <p>
-                        <label htmlFor="student_id">Student ID: </label>
-                        <input type="text" name="student_id"  defaultValue={interview.student_id} /> 
-                    </p>
+                        <p>
+                            <label htmlFor="student_id">Student ID: </label>
+                            <input type="text" name="student_id"  defaultValue={interview.student_id} /> 
+                        </p>
 
-                    <p>
-                        <label htmlFor="jr_updated">JR Updated: </label>
-                        <input type="checkbox" name="jr_updated" value="jr_updated" defaultChecked={interview.jr_updated}/>
-                    </p>
+                        <p>
+                            <label htmlFor="jr_updated">JR Updated: </label>
+                            <input type="checkbox" name="jr_updated" value="jr_updated" defaultChecked={interview.jr_updated}/>
+                        </p>
 
-                    <p>
-                        <label htmlFor="hubspot_updated">Hubspot Updated: </label>
-                        <input type="checkbox" name="hubspot_updated" value="hubspot_updated" defaultChecked={interview.hubspot_updated} />
-                    </p>
+                        <p>
+                            <label htmlFor="hubspot_updated">Hubspot Updated: </label>
+                            <input type="checkbox" name="hubspot_updated" value="hubspot_updated" defaultChecked={interview.hubspot_updated} />
+                        </p>
 
-                    <p>
-                        <label htmlFor="enrolment_confirmed">Enronment Confirmed: </label>
-                        <input type="checkbox" name="enrolment_confirmed" value="enrolment_confirmed" defaultChecked={interview.enrolment_confirmed} />
-                    </p>
+                        <p>
+                            <label htmlFor="enrolment_confirmed">Enronment Confirmed: </label>
+                            <input type="checkbox" name="enrolment_confirmed" value="enrolment_confirmed" defaultChecked={interview.enrolment_confirmed} />
+                        </p>
 
-                    <p>
-                        <label htmlFor="comment">Comments: </label>
-                        <input type="text" name="comment" defaultValue={interview.comment} /> 
-                    </p>
-                    
-                    <p>
-                        <input value="Submit" type="submit" />
-                    </p>
+                        <p>
+                            <label htmlFor="comment">Comments: </label>
+                            <textarea name="comment" className="interviewComment" defaultValue={interview.comment} rows="4" cols="50" /> 
+                        </p>
+                        
+                        <p>
+                            <input value="Submit" type="submit" />
+                        </p>
                     </div>
                 </form>
             </div>
