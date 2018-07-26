@@ -182,6 +182,9 @@ The compliance officer at RedHill Education provided us with the following infor
 - [Workflow Diagram](#28)
 - [Database Design](#29)
 - [Project Plan & Estimation](#30)
+- [Meeting Minutes](#31)
+- [Client Questionnaire](#32)
+
 
 ### <a id="23"></a> Problem
 Our client is Coder Academy’s Operations and Client Services Team. When a prospective candidate applies for a course there is an admissions interview where they are scored based on an admissions matrix. The clients challenge is that their current admissions matrix utilises an across campus google sheet to analyse student responses in their admissions interview. This static sheet is while useful, not sufficient in it’s usability. Some of the sore spots for Coder Academy’s current admissions system are the following. 
@@ -196,6 +199,11 @@ We will be creating an app where Coder Academy interviewers can in real time log
 ### <a id="25"></a> Summary 
 The app will be used during the admissions interview on an iPad. The interviewer will log in, and be able to enter new candidate details prior to the start of the interview. When the interview commences, the interviewer will be able to, in real time log responses from the candidate. At the end of the interview, the responses are submitted and an interview summary is displayed.  The answers are scored, and a total is provided to determine whether or not the candidate meets the admissions criteria. The interview data is saved, so the interviewer is able to access the information at a later time. By viewing all, the interviewer can not only view the most recent candidate’s scores, but all other candidates previously interviewed across campuses so the data can be analysed.  
 ### <a id="26"></a> Initial Design
+![sketch1](./images/sketch1.jpg)
+![sketch2](./images/sketch2.png)
+![sketch3](./images/sketch3.png)
+![sketch4](./images/sketch4.png)
+![sketch5](./images/sketch5.png)
 
 ### Wireframes 
 https://www.figma.com/file/Mk5ccSdSuA67OOHbsYK9XoyJ/Project-3
@@ -239,3 +247,16 @@ Agile development in our app at it’s core came from our team Trello board. Inc
 ![user](./images/estimation.png)
 https://trello.com/b/hJPywhKY/ca-term-3-project
 ![user](./images/trello.png)
+
+### <a id="31"></a> Meeting Minutes
+![sketch1](./images/meeting1.jpg)
+![sketch2](./images/meeting2.jpg)
+
+### <a id="32"></a>  Client Questionnaire
+
+![questionnaire](./images/questionnaire.jpg)
+
+Please note the client questionnaire was filled out prior to submission date due to our client going on annual leave.
+
+# Part C
+The presentation slides have been included in the submitted documents.
