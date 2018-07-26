@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api/questionAPI'
 import {withRouter} from 'react-router-dom';
-import './Forms.css'
+import '../Forms.css'
 
 class QuestionUpdateForm extends Component {
     
@@ -76,7 +76,7 @@ class QuestionUpdateForm extends Component {
                         </p>
                         
                         <p>
-                            <label htmlFor="title">Title</label>
+                            <label htmlFor="title">Title</label><br/>
                             <input type="text" name="title" defaultValue={title} required="required" /> 
                         </p>
 

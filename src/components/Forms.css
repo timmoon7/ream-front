@@ -19,7 +19,8 @@
     font-size: 1em;
   }
   
-  input[type=submit], .update input[type=submit] {
+  input[type=submit], .update input[type=submit], .startinterview, .startinterview a {
+    text-decoration: none;
     background-color:slategray;
     color: snow;
     font-size: 1em;

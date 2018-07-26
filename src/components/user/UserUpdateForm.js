@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api/userAPI'
 import {withRouter} from 'react-router-dom';
-import './Forms.css'
+import '../Forms.css'
 
 class UserUpdateForm extends Component {
 

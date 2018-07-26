@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import interviewAPI from '../../api/interviewAPI'
 import userAPI from '../../api/userAPI'
 import {withRouter} from 'react-router-dom';
-import './Forms.css'
+import '../Forms.css'
 
 class InterviewUpdateForm extends Component {
 

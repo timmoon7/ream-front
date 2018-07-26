@@ -1,6 +1,7 @@
 import React from 'react'
 import api from '../../api/interviewAPI'
 import { Link } from 'react-router-dom'
+import '../Forms.css'
 
 export default function InterviewForm(props) {
 
@@ -89,8 +90,8 @@ export default function InterviewForm(props) {
         </p>
 
         <p>
-            <input type="submit" value="Add Candidate"/>
-            <button>
+            <input type="submit" value="Add Candidate"/><br/><br/> 
+            <button className="startinterview">
                 <Link to={{pathname: `/interviews`}}>Start Interview</Link>
             </button>
         </p>

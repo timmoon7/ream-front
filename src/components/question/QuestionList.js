@@ -4,7 +4,7 @@ import ReactTable from 'react-table'
 import { Link } from 'react-router-dom'
 import QuestionForm from './QuestionForm'
 import '../Forms.css'
-import './ReactTables.css'
+import '../ReactTables.css'
 
 class QuestionList extends Component {
 
