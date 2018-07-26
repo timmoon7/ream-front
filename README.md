@@ -3,9 +3,8 @@ https://ream.now.sh/ <br>
 https://github.com/timmoon7/ream-front
 # Back-end 
 https://github.com/timmoon7/ream <br>
-http://ream-api.now.sh/users <br>
-http://ream-api.now.sh/questions <br>
-http://ream-api.now.sh/interviews
+http://ream-api.now.sh/
+
 # Term 3 Project - REAM
 - [Part A](#a)
 - [Part B](#b)
@@ -188,7 +187,7 @@ The compliance officer at RedHill Education provided us with the following infor
 ## Table of Contents:
 - [Problem](#23)
 - [Solution](#24)
-- [Summary](#25)
+- [Summary and Project Charter](#25)
 - [Design](#26)
 - [User Stories](#27)
 - [Workflow Diagram](#28)
@@ -215,7 +214,9 @@ We have created an application that allows the Operations and Client Services Te
 
 This app will address the clients needs by saving time with live responses and ratings, resolving issues surrounding using a static Google sheet. The main goal of our app is to assist Coder Academy in selecting the best candidates for the course based on real, applicable data, relieving errors.
 
-### <a id="25"></a> Summary 
+### <a id="25"></a> Summary and Project Charter
+After multiple discussions with our client, as outlined below in the meeting minutes we received sign off from her to begin the process to build an app that would help to solve her current problems.
+
 The app will be used during the admissions interview on an iPad. The interviewer will log in, and be able to enter new candidate details prior to the start of the interview. When the interview commences, the interviewer will be able to, in real time log responses from the candidate. At the end of the interview, the responses are submitted and an interview summary is displayed.  The answers are scored, and a total is provided to determine whether or not the candidate meets the admissions criteria. The interview data is saved, so the interviewer is able to access the information at a later time. By viewing all, the interviewer can not only view the most recent candidate’s scores, but all other candidates previously interviewed across campuses so the data can be analysed.  
 
 ### <a id="26"></a> Initial Design
