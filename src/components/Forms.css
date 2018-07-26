@@ -70,8 +70,8 @@
 }
 
 .interviewform button {
-  color: #AD0817;
-  background-color: lightgray;
+  color: snow;
+  background-color: #AD0817;
   font-weight: bold;
   cursor: pointer;
 }
@@ -87,8 +87,8 @@
 }
 
 .update button {
-  background: lightgray;
-  color: #AD0817;
+  background: #AD0817;
+  color: snow;
   border: none;
   padding: 10px 28px;
   text-align: center;
