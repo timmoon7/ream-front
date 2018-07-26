@@ -1,3 +1,8 @@
+# Term 3 Project - REAM
+- [Part A](#a)
+- [Part B](#b)
+- [Part C](#c)
+
 # Part A
 
 ## Table of Contents:
