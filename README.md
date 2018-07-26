@@ -3,9 +3,8 @@ https://ream.now.sh/ <br>
 https://github.com/timmoon7/ream-front
 # Back-end 
 https://github.com/timmoon7/ream <br>
-http://ream-api.now.sh/users <br>
-http://ream-api.now.sh/questions <br>
-http://ream-api.now.sh/interviews
+http://ream-api.now.sh/
+
 # Term 3 Project - REAM
 - [Part A](#a)
 - [Part B](#b)
