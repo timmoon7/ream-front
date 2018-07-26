@@ -3,7 +3,7 @@
 - [Part B](#b)
 - [Part C](#c)
 
-# Part A
+# <a id="a"></a> Part A
 
 ## Table of Contents:
 - [Q1 Who is your client?](#1)
@@ -177,7 +177,7 @@ The compliance officer at RedHill Education provided us with the following infor
 - The RedHill site has a separate privacy Policy that relates to its obligations which are different to the legal obligations of the various education providers owned by RedHill.
 
 
-# Part B
+# <a id="b"></a> Part B
 ## Table of Contents:
 - [Problem](#23)
 - [Solution](#24)
@@ -263,5 +263,5 @@ https://trello.com/b/hJPywhKY/ca-term-3-project
 
 Please note the client questionnaire was filled out prior to submission date due to our client going on annual leave.
 
-# Part C
+# <a id="c"></a> Part C
 The presentation slides have been included in the submitted documents.
