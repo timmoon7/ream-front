@@ -1,6 +1,7 @@
 import React from 'react'
-import '../LoginForm.css'
 import api from '../../api/userAPI'
+import '../Forms.css'
+
 
 export default function RegisterForm() {
 

@@ -8,7 +8,7 @@ import auth from './api/auth'
 import interviewAPI from './api/interviewAPI'
 import questionAPI from './api/questionAPI'
 import userAPI from './api/userAPI'
-import logo from './logo.jpg'
+import logo from './redhill.png'
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 
 import MainMenu from './pages/MainMenu'
