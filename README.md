@@ -184,7 +184,6 @@ The compliance officer at RedHill Education provided us with the following infor
 - Our Privacy Policy describes how AIT and its subsidiary brand Coder Academy we complies and what rights individuals have https://res.cloudinary.com/ait-website/image/upload/v1526966656/pdf/FINAL_Privacy_and_Data_Collection_Policy_V1.0_26042018_1.pdf
 - The RedHill site has a separate privacy Policy that relates to its obligations which are different to the legal obligations of the various education providers owned by RedHill.
 
-
 # <a id="b"></a> Part B
 ## Table of Contents:
 - [Problem](#23)
@@ -195,22 +194,30 @@ The compliance officer at RedHill Education provided us with the following infor
 - [Workflow Diagram](#28)
 - [Database Design](#29)
 - [Project Plan & Estimation](#30)
-- [Meeting Minutes](#31)
+- [Communication with Client and Meeting Minutes](#31)
 - [Client Questionnaire](#32)
+- [Post Project Review](#33)
 
 
 ### <a id="23"></a> Problem
-Our client is Coder Academy’s Operations and Client Services Team. When a prospective candidate applies for a course there is an admissions interview where they are scored based on an admissions matrix. The clients challenge is that their current admissions matrix utilises an across campus google sheet to analyse student responses in their admissions interview. This static sheet is while useful, not sufficient in it’s usability. Some of the sore spots for Coder Academy’s current admissions system are the following. 
+As discussed in part A our client is Coder Academy's and more broadly RedHill Education's Operations and Client Services Team. 
+
+When a prospective candidate applies for a course, the Operations and Client Services Team conducts an admissions interview where they ask the prospective candidate a set of questions. The candidate is then scored on their answers and their suitability for the course is assessed based on an admissions matrix. 
+
+The clients challenge is that their current admissions matrix utilises an across campus google sheet to analyse student responses in their admissions interview. This static sheet is useful, not sufficient in it’s usability. Some of the issues with the current admissions system are the following. 
 - Coder Academy is seeking students that will be successful in the course, so the information they retrieve must be accurate and have the accessibility to be analysed. 
-- The interviewer must remember interviewee responses for logging at a later time.
+- The interviewer must remember interviewee responses from the interview and be able to to record them at a later time.
 - Notes are made during the interview, then are required to be re-entered following into the Google sheet. 
 - Multiple users using the Google sheet at the same time result in sheet errors and data loss.
 
 ### <a id="24"></a> Solution 
-We will be creating an app where Coder Academy interviewers can in real time log interview responses from candidates for reflection at a later time. This app will address the clients needs by saving time with live responses and ratings, resolving issues surrounding using a static Google sheet. The main goal of our app is to assist Coder Academy in selecting the best candidates for the course based on real, applicable data, relieving errors.
+We have created an application that allows the Operations and Client Services Team who are conducting admission interviews to be able to log real time interview responses from candidates for reflection at a later time. 
+
+This app will address the clients needs by saving time with live responses and ratings, resolving issues surrounding using a static Google sheet. The main goal of our app is to assist Coder Academy in selecting the best candidates for the course based on real, applicable data, relieving errors.
 
 ### <a id="25"></a> Summary 
 The app will be used during the admissions interview on an iPad. The interviewer will log in, and be able to enter new candidate details prior to the start of the interview. When the interview commences, the interviewer will be able to, in real time log responses from the candidate. At the end of the interview, the responses are submitted and an interview summary is displayed.  The answers are scored, and a total is provided to determine whether or not the candidate meets the admissions criteria. The interview data is saved, so the interviewer is able to access the information at a later time. By viewing all, the interviewer can not only view the most recent candidate’s scores, but all other candidates previously interviewed across campuses so the data can be analysed.  
+
 ### <a id="26"></a> Initial Design
 ![sketch1](./images/sketch1.jpg)
 ![sketch2](./images/sketch2.png)
@@ -218,14 +225,16 @@ The app will be used during the admissions interview on an iPad. The interviewer
 ![sketch4](./images/sketch4.png)
 ![sketch5](./images/sketch5.png)
 
-### Wireframes 
+### Wireframes
+Our wireframes were designed in Figma and can be found here: 
 https://www.figma.com/file/Mk5ccSdSuA67OOHbsYK9XoyJ/Project-3
+
 ### Wireframes (Before)
 Our wireframes before receiving client feedback. 
 ![beforewireframe](./images/figma1.png)
 
 ### Wireframes (After)
-Our wireframes after receiving client feedback. We had an interview with Samara where we showed her the wireframes and discussed how it could be adjusted to better suit her needs. 
+Our wireframes after receiving client feedback. We had an meeting with Samara where we showed her the wireframes and discussed how it could be adjusted to better suit her needs. 
 ![beforewireframe](./images/figma2.png)
 
 ### <a id="27"></a> User Stories
@@ -246,6 +255,7 @@ Our wireframes after receiving client feedback. We had an interview with Samara 
 - As Coder Academy we want our staff members conducting interviews to be able to do so as quickly and easily and possible so that our staff can be as efficient in roles as possible.
 
 ### <a id="28"></a> Workflow Diagram
+The workflow diagram was built based on the wireframes. This was used as a reference point when building the app.
 ![schema](./images/workflow.jpg)
 
 ### <a id="29"></a> Database Design
@@ -253,23 +263,42 @@ Our wireframes after receiving client feedback. We had an interview with Samara 
 ![user](./images/user.png)
 ![question](./images/question.png)
 ![interview](./images/interview.png)
+
 ### <a id="30"></a> Project Plan & Estimation
-
-Agile development in our app at it’s core came from our team Trello board. Incremental work was allocated to all team members instead of all at once. We planned to continously reassess tasks and how they are allocated and then alter things as required.
-
+At the beginning of the project we created an estimation for the project which helped to give us a great overview of the milestones that we needed to achieve and helped us to plan out our daily work and a great reference point for tracking our progress.
 ![user](./images/estimation.png)
+
+Agile development in our app at it’s core came from our team Trello board. Incremental work was allocated to all team members instead of all at once. We continously reassess tasks and how they are allocated and then altered things as required. 
+
+Each day as a team we discussed how our tasks were going and then made any changes that were required. We always referred back to our users stories and the communications with our client to make sure the app was as user friendly as possible.
+
+We constantly checked and tested each others code and offered feedback where appropriate. On a number of occasions throughout the process we found it helped to pair program to solve a problem together.
+
+Our final trello board can be found here:
+
 https://trello.com/b/hJPywhKY/ca-term-3-project
+
 ![user](./images/trello.png)
 
-### <a id="31"></a> Meeting Minutes
+One of our biggest challenges with task allocation was that one of our team members was unwell and had to work from home for the final two weeks of the project.
+
+This meant that the majority of our teams communication was via slack. Although this was an added challenge it was a great learning exercise for the team for something that we will no doubt encounter during our careers.
+
+### <a id="31"></a> Communication with Client and Meeting Minutes
+We recorded all of offical meetings that we had with our client as shown below in the meeting minutes. All additional communications and follow up questions were done via Slack as requested by the client.
+
 ![sketch1](./images/meeting1.jpg)
 ![sketch2](./images/meeting2.jpg)
 
-### <a id="32"></a>  Client Questionnaire
+### <a id="32"></a> Client Questionnaire
 
 ![questionnaire](./images/questionnaire.jpg)
 
 Please note the client questionnaire was filled out prior to submission date due to our client going on annual leave.
 
+### <a id="33"></a> Post Project Review
+
 # <a id="c"></a> Part C
 The presentation slides have been included in the submitted documents.
+
+During the presentation we will spent the majority of our allocated time showcasing the deployed version of the app and its features.
