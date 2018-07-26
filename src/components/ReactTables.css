@@ -5,7 +5,6 @@ p.name, span.qvalue, p.utitle{
 span.value, p.qtitle, li.qtitle, span.uvalue {
     color: #AD0817;
     font-weight: bold;
-   
 }
 
 .expandsection {
@@ -13,8 +12,8 @@ span.value, p.qtitle, li.qtitle, span.uvalue {
 }
 
 .expandsection button {
-    background: lightgray;
-    color: #404040;
+    background: slategray;
+    color: snow;
     border: none;
     padding: 15px 32px;
     text-align: center;
@@ -26,10 +25,5 @@ span.value, p.qtitle, li.qtitle, span.uvalue {
 
 .expandsection button a{
     text-decoration: none;
-    color: black
-}
-
-.expandsection button:hover {
-    background: slategray;
-    color: snow;
+    color: snow
 }

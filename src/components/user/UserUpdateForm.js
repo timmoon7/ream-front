@@ -52,9 +52,7 @@ class UserUpdateForm extends Component {
 
         return (
             <div className="update">
-                <button onClick={() => {
-                    this.deleteUser(user._id)}}>Delete This User
-                </button>
+             
                 <div> 
                     <h1>Update User</h1>
                     <form onSubmit={this.onSubmit}>
@@ -97,6 +95,12 @@ class UserUpdateForm extends Component {
             
                         <p>
                             <input type="submit" value="Update"/>
+                        </p>
+                        <br/><br/>
+                        <p>
+                            <button onClick={() => {
+                            this.deleteUser(user._id)}}>Delete This User
+                            </button>
                         </p>
                     </form>
                 </div>
