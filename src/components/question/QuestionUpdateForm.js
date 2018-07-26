@@ -61,9 +61,7 @@ class QuestionUpdateForm extends Component {
         
         return (
             <div className="update">                
-                <button onClick={() => {
-                    this.deleteQuestion(_id)}}>Delete This Question
-                </button>
+
                 <div> 
                     <h1>Current Questions</h1>
                     <form onSubmit={this.onSubmit}>
@@ -115,7 +113,15 @@ class QuestionUpdateForm extends Component {
                             <input type="text" name="item5" defaultValue={criteria[4].item} size="50" required="required" />
                         </p>
 
-                        <input type="submit" value="Edit Question" />
+                        <p>
+                            <input type="submit" value="Edit Question" />
+                        </p>
+                        <br/><br/>
+                        <p>
+                            <button onClick={() => {
+                                this.deleteQuestion(_id)}}>Delete This Question
+                            </button>
+                        </p>
                     </form>
                 </div>
             </div>
